@@ -1,0 +1,213 @@
+.learner-dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.learner-view-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.learner-view-header h1 {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--admin-text-main, #1a1a1a);
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.learner-view-header p {
+  font-size: 13px;
+  color: var(--admin-text-muted, #64748b);
+  margin: 0;
+}
+
+.btn-header-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: var(--admin-radius-md, 8px);
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.btn-header-action:hover {
+  background-color: var(--color-primary-dark, #7f1414);
+}
+
+/* Upcoming Lesson Hero Card */
+.upcoming-lesson-card {
+  background: linear-gradient(135deg, #ffffff 0%, #fffbfb 100%);
+  border: 1.5px solid var(--admin-accent-border, #fecaca);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 20px 24px;
+  box-shadow: var(--admin-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lesson-badge-ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--color-primary, #B91C1C);
+  background-color: var(--admin-accent-subtle, #fef2f2);
+  padding: 3px 10px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.lesson-card-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.lesson-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.lesson-time-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lesson-time-str {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.lesson-date-str {
+  font-size: 13px;
+  color: var(--color-primary, #B91C1C);
+  font-weight: 700;
+  background-color: #fef2f2;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.lesson-topic-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.topic-lbl {
+  color: var(--admin-text-muted, #64748b);
+}
+
+.topic-title {
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.lesson-meta-chips {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
+.meta-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.meta-chip strong {
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.lesson-right-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.btn-view-bookings-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-primary, #B91C1C);
+  text-decoration: none;
+}
+
+.btn-view-bookings-link:hover {
+  text-decoration: underline;
+}
+
+/* Feedback Notes Stack */
+.feedback-notes-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feedback-note-bubble {
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-md, 8px);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feedback-note-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feedback-note-top strong {
+  font-size: 12px;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.feedback-date {
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.feedback-text {
+  font-size: 12px;
+  color: var(--admin-text-main, #1a1a1a);
+  margin: 0;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.trainer-signature {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary, #B91C1C);
+  margin-top: 2px;
+}

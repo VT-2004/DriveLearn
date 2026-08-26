@@ -1,0 +1,109 @@
+.error-boundary-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: var(--color-bg-subtle, #fafafa);
+  font-family: inherit;
+}
+
+.error-boundary-card {
+  max-width: 520px;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-border, #e5e5e5);
+  border-radius: var(--radius-lg, 16px);
+  padding: 40px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-lg);
+}
+
+.error-icon-bubble {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #fef2f2;
+  border: 1.5px solid #fecaca;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-boundary-card h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-text, #1a1a1a);
+  margin: 0;
+}
+
+.error-boundary-card p {
+  font-size: 13px;
+  color: var(--color-text-muted, #64748b);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.error-stack-snippet {
+  width: 100%;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 11px;
+  color: #dc2626;
+  text-align: left;
+  overflow-x: auto;
+  font-family: monospace;
+}
+
+.error-boundary-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.btn-error-reload {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md, 8px);
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+  border: none;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-error-reload:hover {
+  background-color: var(--color-primary-dark, #7f1414);
+}
+
+.btn-error-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md, 8px);
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-border, #e5e5e5);
+  color: var(--color-text, #1a1a1a);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-error-home:hover {
+  background-color: #f1f5f9;
+}

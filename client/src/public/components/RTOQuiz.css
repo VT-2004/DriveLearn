@@ -1,0 +1,442 @@
+.quiz-section-container {
+  padding: 5rem 0;
+  background-color: var(--bg-page);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Dual Side-by-Side Grid */
+.rto-dual-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* LEFT BOX: Quiz Wrapper */
+.quiz-wrapper-card {
+  background: #ffffff;
+  border: 2px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 15px 35px -5px rgba(220, 38, 38, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Intro State */
+.quiz-intro-box {
+  text-align: center;
+}
+
+.quiz-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-accent);
+}
+
+.quiz-intro-box h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.quiz-intro-box p {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  margin: 0 auto 1.25rem;
+  line-height: 1.55;
+}
+
+.quiz-perks-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-start-quiz {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #ffffff;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-start-quiz:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.45);
+}
+
+/* Active Quiz State */
+.quiz-progress-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.q-counter {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #dc2626, #b91c1c);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.quiz-question-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-page);
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quiz-option-btn:hover {
+  border-color: #fca5a5;
+  background-color: #fffafb;
+}
+
+.quiz-option-btn.selected {
+  border-color: #dc2626;
+  background-color: #fef2f2;
+  color: #dc2626;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+}
+
+.opt-letter {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.quiz-option-btn.selected .opt-letter {
+  background-color: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
+}
+
+.quiz-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.quiz-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.btn-next-q {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #ffffff;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.btn-next-q:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Results State */
+.quiz-result-box {
+  text-align: center;
+}
+
+.result-score-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+}
+
+.result-score-circle.passed {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 3px solid #86efac;
+}
+
+.result-score-circle.failed {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 3px solid #fca5a5;
+}
+
+.score-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.pass-badge, .fail-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.pass-badge {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.fail-badge {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.quiz-result-box h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.result-msg {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.result-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-retake {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #ffffff;
+  color: var(--text-main);
+  border: 1.5px solid #cbd5e1;
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.btn-retake:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-enroll-pass {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #ffffff;
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  font-size: 0.88rem;
+}
+
+/* RIGHT BOX: Govt License Card */
+.govt-license-card {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.govt-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  border: 1px solid #bfdbfe;
+  align-self: flex-start;
+}
+
+.govt-license-card h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.govt-card-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+.govt-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 1.75rem;
+  background-color: var(--bg-page);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  flex: 1;
+}
+
+.govt-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.step-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #1e293b;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.govt-step-item strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--text-main);
+}
+
+.govt-step-item span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.btn-govt-redirect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #1e293b;
+  color: #ffffff;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.btn-govt-redirect:hover {
+  background: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.govt-disclaimer-note {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .rto-dual-grid {
+    grid-template-columns: 1fr;
+  }
+}

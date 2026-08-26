@@ -1,0 +1,125 @@
+.attendance-calendar-card {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 16px;
+  box-shadow: var(--admin-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.attendance-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--admin-border, #e5e5e5);
+}
+
+.attendance-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.attendance-title-wrap strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.attendance-badge {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--admin-success-text, #15803D);
+  background-color: var(--admin-success-bg, #f0fdf4);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--admin-success-border, #bbf7d0);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-dow-header {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--admin-text-muted, #64748b);
+  text-align: center;
+  padding: 4px 0;
+}
+
+.cal-day-cell {
+  aspect-ratio: 1;
+  border-radius: var(--admin-radius-sm, 4px);
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 11px;
+  color: var(--admin-text-main, #1a1a1a);
+  font-weight: 600;
+}
+
+.cal-day-cell.blank {
+  background-color: transparent;
+  border: none;
+}
+
+.cal-day-cell.completed-day {
+  background-color: var(--admin-success-bg, #f0fdf4);
+  border-color: var(--admin-success-border, #bbf7d0);
+  color: var(--admin-success-text, #15803D);
+  font-weight: 800;
+}
+
+.cal-day-cell.today-day {
+  border: 1.5px solid var(--color-primary, #B91C1C);
+  box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.1);
+}
+
+.completed-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--admin-success-text, #15803D);
+  position: absolute;
+  bottom: 3px;
+}
+
+.attendance-footer-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid var(--admin-border, #e5e5e5);
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.legend-dot.green {
+  background-color: var(--admin-success-text, #15803D);
+}
+
+.legend-dot.today {
+  border: 1.5px solid var(--color-primary, #B91C1C);
+}

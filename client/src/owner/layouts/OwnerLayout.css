@@ -1,0 +1,36 @@
+.owner-portal-shell {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--admin-bg-subtle, #fafafa);
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.owner-main-viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.owner-page-container {
+  flex: 1;
+  padding: 24px 28px 48px 28px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.owner-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 35;
+}
+
+@media (max-width: 768px) {
+  .owner-page-container {
+    padding: 16px 16px 36px 16px;
+  }
+}

@@ -1,0 +1,244 @@
+.find-school-page {
+  background-color: var(--color-bg-subtle, #FAFAFA);
+  min-height: 90vh;
+  padding-bottom: 64px;
+}
+
+/* Header Bar */
+.search-header-bar {
+  background: radial-gradient(100% 100% at 50% 0%, #fff5f5 0%, #ffffff 100%);
+  border-bottom: 1.5px solid var(--color-border, #E5E5E5);
+  padding: 40px 0 32px;
+  text-align: center;
+}
+
+.search-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: var(--color-primary, #B91C1C);
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.search-header-bar h1 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--color-text, #1A1A1A);
+  margin-bottom: 8px;
+}
+
+.search-header-bar p {
+  font-size: 14px;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+.search-bar-wrap {
+  position: relative;
+  max-width: 580px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar-icon {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+}
+
+.search-bar-input {
+  width: 100%;
+  padding: 12px 40px 12px 44px;
+  border: 1.5px solid var(--color-border, #E5E5E5);
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: var(--color-bg, #ffffff);
+  color: var(--color-text, #1A1A1A);
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.15s ease;
+}
+
+.search-bar-input:focus {
+  border-color: var(--color-primary, #B91C1C);
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.1);
+}
+
+.btn-clear-input {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Layout */
+.find-school-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+/* Sidebar Filters */
+.filters-sidebar {
+  background-color: var(--color-bg, #ffffff);
+  border: 1.5px solid var(--color-border, #E5E5E5);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: fit-content;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border, #E5E5E5);
+}
+
+.filters-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--color-text, #1A1A1A);
+}
+
+.btn-reset-filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-reset-filters:hover {
+  color: var(--color-primary, #B91C1C);
+}
+
+.btn-near-me {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #fef2f2;
+  border: 1.5px solid #fecaca;
+  color: var(--color-primary, #B91C1C);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-near-me:hover {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text, #1A1A1A);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1.5px solid var(--color-border, #E5E5E5);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--color-text, #1A1A1A);
+  background-color: var(--color-bg, #ffffff);
+  outline: none;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  border-color: var(--color-primary, #B91C1C);
+}
+
+.checkboxes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: var(--color-primary, #B91C1C);
+  width: 16px;
+  height: 16px;
+}
+
+/* Results Area */
+.schools-results-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.results-count-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.results-count-text {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.results-count-text strong {
+  color: var(--color-text, #1A1A1A);
+}
+
+.schools-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .find-school-layout {
+    grid-template-columns: 1fr;
+  }
+}

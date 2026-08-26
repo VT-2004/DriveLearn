@@ -1,0 +1,11 @@
+.instructor-schedule-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.schedule-timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

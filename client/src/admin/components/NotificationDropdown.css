@@ -1,0 +1,119 @@
+.admin-notification-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 360px;
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e2e8f0);
+  border-radius: var(--admin-radius-lg, 12px);
+  box-shadow: var(--admin-shadow-lg);
+  z-index: 200;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.15s ease;
+}
+
+.notif-dropdown-header {
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--admin-border, #e2e8f0);
+  background-color: var(--admin-bg-subtle, #f8fafc);
+}
+
+.notif-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+  color: var(--admin-text-main, #0f172a);
+}
+
+.btn-mark-all-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: transparent;
+  border: none;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--admin-accent, #dc2626);
+  cursor: pointer;
+}
+
+.btn-mark-all-read:hover {
+  text-decoration: underline;
+}
+
+.notif-dropdown-list {
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.notif-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--admin-border-subtle, #f1f5f9);
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.notif-item:hover {
+  background-color: var(--admin-surface-hover, #f1f5f9);
+}
+
+.notif-item.unread {
+  background-color: var(--admin-accent-subtle, #fef2f2);
+}
+
+.notif-dot-wrap {
+  padding-top: 4px;
+}
+
+.notif-status-dot {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.notif-status-dot.active {
+  background-color: var(--admin-accent, #dc2626);
+}
+
+.notif-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.notif-text {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--admin-text-main, #0f172a);
+  line-height: 1.35;
+  margin-bottom: 0.2rem;
+}
+
+.notif-time {
+  font-size: 0.72rem;
+  color: var(--admin-text-subtle, #94a3b8);
+}
+
+.notif-arrow {
+  color: var(--admin-text-subtle, #94a3b8);
+  margin-top: 4px;
+}
+
+.notif-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.84rem;
+  color: var(--admin-text-muted, #64748b);
+}

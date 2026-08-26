@@ -1,0 +1,34 @@
+.expiry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-danger {
+  background-color: var(--admin-danger-bg, #fef2f2);
+  color: var(--admin-danger-text, #B91C1C);
+  border: 1px solid var(--admin-danger-border, #fecaca);
+}
+
+.badge-warning {
+  background-color: var(--admin-warning-bg, #fffbeb);
+  color: var(--admin-warning-text, #b45309);
+  border: 1px solid var(--admin-warning-border, #fde68a);
+}
+
+.badge-success {
+  background-color: var(--admin-success-bg, #f0fdf4);
+  color: var(--admin-success-text, #15803D);
+  border: 1px solid var(--admin-success-border, #bbf7d0);
+}
+
+.badge-neutral {
+  background-color: var(--admin-bg-subtle, #fafafa);
+  color: var(--admin-text-muted, #64748b);
+  border: 1px solid var(--admin-border, #e5e5e5);
+}

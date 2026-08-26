@@ -1,0 +1,166 @@
+.admin-schools-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.schools-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schools-header-row h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.schools-header-row p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+/* Controls Bar */
+.schools-controls-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.admin-search-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.55rem 0.85rem;
+  flex: 1;
+  min-width: 260px;
+}
+
+.admin-search-input-wrap input {
+  border: none;
+  outline: none;
+  font-size: 0.86rem;
+  width: 100%;
+}
+
+.admin-city-select {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.55rem 0.85rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-main);
+  outline: none;
+}
+
+/* Data Table */
+.admin-table-container {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.admin-data-table th {
+  background-color: var(--bg-page);
+  padding: 0.85rem 1.25rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-data-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.admin-data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-data-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.school-name-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.school-name-cell strong {
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.school-name-cell span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.rto-badge {
+  font-size: 0.76rem;
+  font-weight: 800;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  color: var(--text-main);
+}
+
+.owner-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.owner-phone {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.price-badge {
+  font-weight: 800;
+  color: #dc2626;
+  background-color: #fee2e2;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.status-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: #dcfce7;
+  color: #166534;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid #bbf7d0;
+}

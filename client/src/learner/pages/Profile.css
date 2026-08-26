@@ -1,0 +1,164 @@
+.learner-profile-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.profile-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.input-disabled {
+  background-color: var(--admin-bg-subtle, #fafafa);
+  color: var(--admin-text-muted, #64748b);
+  cursor: not-allowed;
+}
+
+.profile-success-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  color: #15803D;
+  padding: 12px 16px;
+  border-radius: var(--admin-radius-md, 8px);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Notification Preferences */
+.notif-prefs-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pref-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-md, 8px);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.pref-toggle-row:hover {
+  background-color: var(--admin-surface-hover, #f8fafc);
+}
+
+.pref-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pref-meta strong {
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.pref-meta span {
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.pref-toggle-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary, #B91C1C);
+  cursor: pointer;
+}
+
+/* Privacy Actions */
+.privacy-card-panel {
+  border-left: 3px solid #64748b;
+}
+
+.privacy-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-privacy-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--admin-radius-md, 8px);
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--admin-text-main, #1a1a1a);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-privacy-download:hover {
+  background-color: var(--admin-surface-hover, #f1f5f9);
+}
+
+.btn-privacy-delete {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--admin-radius-md, 8px);
+  background-color: #fef2f2;
+  border: 1.5px solid #fecaca;
+  font-size: 12px;
+  font-weight: 700;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-privacy-delete:hover {
+  background-color: #fee2e2;
+}
+
+.profile-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-save-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: var(--admin-radius-md, 8px);
+  border: none;
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-save-profile:hover {
+  background-color: var(--color-primary-dark, #7f1414);
+}
+
+@media (max-width: 768px) {
+  .profile-fields-grid {
+    grid-template-columns: 1fr;
+  }
+}

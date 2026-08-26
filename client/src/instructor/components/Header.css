@@ -1,0 +1,70 @@
+.instructor-portal-header {
+  height: 64px;
+  background-color: var(--admin-bg, #ffffff);
+  border-bottom: 1.5px solid var(--admin-border, #e5e5e5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.trainer-school-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  padding: 6px 12px;
+  border-radius: var(--admin-radius-md, 8px);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.trainer-identity-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 10px;
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-md, 8px);
+}
+
+.trainer-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trainer-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.trainer-name {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.trainer-role {
+  font-size: 10px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+@media (max-width: 900px) {
+  .trainer-school-chip {
+    display: none;
+  }
+}

@@ -1,0 +1,120 @@
+.admin-users-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.users-header-row h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.users-header-row p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.users-controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.role-filter-pills {
+  display: flex;
+  gap: 0.35rem;
+  background-color: #f1f5f9;
+  padding: 0.25rem;
+  border-radius: var(--radius-md);
+}
+
+.role-filter-pills .pill-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.role-filter-pills .pill-btn.active {
+  background-color: #ffffff;
+  color: var(--primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.user-name-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.user-name-cell strong {
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.user-name-cell span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.role-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.role-learner { background-color: #dbeafe; color: #1e40af; }
+.role-owner { background-color: #fef3c7; color: #92400e; }
+.role-instructor { background-color: #f3e8ff; color: #6b21a8; }
+.role-admin { background-color: #fee2e2; color: #991b1b; }
+
+.contact-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.76rem;
+  color: var(--text-main);
+}
+
+.contact-cell span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.wallet-cell-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+
+.wallet-cell-pill.has-balance {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.wallet-cell-pill.zero {
+  background-color: #f1f5f9;
+  color: var(--text-muted);
+}
+
+.join-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}

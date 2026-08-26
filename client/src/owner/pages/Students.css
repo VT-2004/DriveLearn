@@ -1,0 +1,102 @@
+.owner-students-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.student-name-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-name-cell strong {
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.student-phone-sub {
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.student-course-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.student-course-cell span {
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.vehicle-type-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-primary, #B91C1C) !important;
+  background-color: var(--admin-accent-subtle, #fef2f2);
+  padding: 1px 6px;
+  border-radius: 3px;
+  width: fit-content;
+}
+
+.student-progress-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.progress-bar-track {
+  flex: 1;
+  height: 6px;
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-primary, #B91C1C);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.progress-bar-fill.complete {
+  background-color: var(--admin-success-text, #15803D);
+}
+
+.progress-percent-lbl {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+  min-width: 34px;
+}
+
+.btn-inspect-student {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-sm, 4px);
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--admin-text-main, #1a1a1a);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-inspect-student:hover {
+  background-color: var(--admin-surface-hover, #f1f5f9);
+  border-color: var(--admin-border-strong, #cbd5e1);
+}
+
+.students-toolbar-extra {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}

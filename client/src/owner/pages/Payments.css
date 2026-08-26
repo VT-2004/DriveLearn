@@ -1,0 +1,125 @@
+.owner-payments-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.payout-math-info-banner {
+  background-color: var(--admin-bg, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-left: 4px solid var(--color-primary, #B91C1C);
+  border-radius: var(--admin-radius-md, 8px);
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.payout-math-info-banner strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+  display: block;
+}
+
+.payout-math-info-banner p {
+  font-size: 12px;
+  color: var(--admin-text-muted, #64748b);
+  margin: 3px 0 0 0;
+  line-height: 1.4;
+}
+
+.payments-table-card {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 20px;
+  box-shadow: var(--admin-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payments-table-header {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--admin-border, #e5e5e5);
+}
+
+.payments-table-header h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+  margin: 0;
+}
+
+.payments-table-header p {
+  font-size: 12px;
+  color: var(--admin-text-muted, #64748b);
+  margin: 2px 0 0 0;
+}
+
+.payment-txn-code {
+  font-family: monospace;
+  font-size: 12px;
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.payment-student-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-student-cell strong {
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.payment-course-sub {
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.paid-amount-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.wallet-applied-sub {
+  font-size: 10px;
+  color: var(--color-primary, #B91C1C);
+  font-weight: 600;
+}
+
+.platform-commission-cell {
+  color: var(--admin-danger-text, #B91C1C);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.net-payout-cell {
+  color: var(--admin-success-text, #15803D);
+  font-size: 14px;
+}
+
+.btn-download-invoice {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: var(--admin-radius-sm, 4px);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  background-color: var(--admin-bg-subtle, #fafafa);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--admin-text-main, #1a1a1a);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-download-invoice:hover {
+  background-color: var(--admin-surface-hover, #f1f5f9);
+  border-color: var(--admin-border-strong, #cbd5e1);
+}

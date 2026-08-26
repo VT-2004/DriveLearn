@@ -1,0 +1,97 @@
+.instructor-sidebar {
+  width: 250px;
+  background-color: var(--admin-bg, #ffffff);
+  border-right: 1.5px solid var(--admin-border, #e5e5e5);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.instructor-nav-list {
+  flex: 1;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.instructor-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--admin-radius-md, 8px);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--admin-text-muted, #64748b);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.instructor-nav-item:hover {
+  background-color: var(--admin-surface-hover, #f1f5f9);
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.instructor-nav-item.active {
+  background-color: var(--admin-accent-subtle, #fef2f2);
+  color: var(--color-primary, #B91C1C);
+  border-left: 3px solid var(--color-primary, #B91C1C);
+}
+
+.instructor-footer-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: var(--admin-radius-md, 8px);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--admin-text-muted, #64748b);
+  text-decoration: none;
+}
+
+.instructor-footer-link:hover {
+  background-color: var(--admin-surface-hover, #f1f5f9);
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.instructor-logout-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: var(--admin-radius-md, 8px);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--admin-danger-text, #B91C1C);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.instructor-logout-button:hover {
+  background-color: var(--admin-danger-bg, #fef2f2);
+}
+
+@media (max-width: 900px) {
+  .instructor-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    box-shadow: var(--admin-shadow-lg);
+  }
+
+  .instructor-sidebar.open {
+    transform: translateX(0);
+  }
+}

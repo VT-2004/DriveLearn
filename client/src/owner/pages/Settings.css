@@ -1,0 +1,74 @@
+.owner-settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.rto-verification-card {
+  border-left: 4px solid var(--admin-success-text, #15803D) !important;
+  background-color: var(--admin-surface, #ffffff);
+}
+
+.verification-status-display {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.verif-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803D;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  width: fit-content;
+}
+
+.verif-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #15803D;
+}
+
+.verif-sub-meta {
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.read-only-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+  margin-top: 4px;
+}
+
+.settings-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+  cursor: pointer;
+}
+
+.checkbox-item input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary, #B91C1C);
+  cursor: pointer;
+}

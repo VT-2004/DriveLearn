@@ -1,0 +1,62 @@
+.admin-audit-log-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background-color: var(--admin-surface, #ffffff);
+  border: 1px solid var(--admin-border, #e2e8f0);
+  border-radius: var(--admin-radius-md, 8px);
+  transition: all 0.15s ease;
+}
+
+.admin-audit-log-row:hover {
+  background-color: var(--admin-surface-hover, #f1f5f9);
+  border-color: var(--admin-border-strong, #cbd5e1);
+}
+
+.audit-avatar-chip {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--admin-bg-subtle, #f8fafc);
+  border: 1px solid var(--admin-border, #e2e8f0);
+  color: var(--admin-text-muted, #64748b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.audit-text-block {
+  flex: 1;
+  min-width: 0;
+}
+
+.audit-sentence {
+  font-size: 0.85rem;
+  color: var(--admin-text-main, #0f172a);
+  line-height: 1.4;
+}
+
+.audit-admin-name {
+  font-weight: 800;
+  color: var(--admin-text-main, #0f172a);
+}
+
+.audit-action-text {
+  color: var(--admin-text-muted, #64748b);
+}
+
+.audit-target-name {
+  font-weight: 700;
+  color: var(--admin-accent, #dc2626);
+}
+
+.audit-time-block {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.74rem;
+  color: var(--admin-text-subtle, #94a3b8);
+  flex-shrink: 0;
+}

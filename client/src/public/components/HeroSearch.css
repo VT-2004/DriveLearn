@@ -1,0 +1,110 @@
+.hero-search-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 15px 30px -5px rgba(220, 38, 38, 0.08), 0 8px 12px -6px rgba(0, 0, 0, 0.05);
+  border: 1.5px solid var(--border-accent);
+  max-width: 960px;
+  margin: 2rem auto 0;
+  text-align: left;
+}
+
+.search-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr auto;
+  gap: 1.25rem;
+  align-items: flex-end;
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-field label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.field-icon {
+  color: var(--primary);
+}
+
+.search-select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid #e2e8f0;
+  background-color: var(--bg-page);
+  font-size: 0.92rem;
+  color: var(--text-main);
+  font-weight: 600;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-select:focus {
+  border-color: var(--primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+.highlight-select {
+  border-color: #fca5a5;
+  background-color: #fffafb;
+}
+
+.search-btn-wrap {
+  display: flex;
+}
+
+.search-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #ffffff;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  transition: all 0.2s ease;
+  height: 48px;
+}
+
+.search-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+}
+
+@media (max-width: 900px) {
+  .search-inputs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .search-btn-wrap {
+    grid-column: span 2;
+  }
+  .search-submit-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-inputs-grid {
+    grid-template-columns: 1fr;
+  }
+  .search-btn-wrap {
+    grid-column: span 1;
+  }
+}

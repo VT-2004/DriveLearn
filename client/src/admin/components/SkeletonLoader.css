@@ -1,0 +1,29 @@
+.skeleton-loader-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.skeleton-row-pulse {
+  width: 100%;
+  border-radius: var(--admin-radius-md, 8px);
+  background: linear-gradient(
+    90deg,
+    var(--admin-surface-hover, #f1f5f9) 25%,
+    var(--admin-border-subtle, #e2e8f0) 50%,
+    var(--admin-surface-hover, #f1f5f9) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes skeletonPulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

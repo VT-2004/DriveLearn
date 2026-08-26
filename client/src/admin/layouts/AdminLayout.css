@@ -1,0 +1,25 @@
+.admin-portal-shell {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--admin-bg, #ffffff);
+  color: var(--admin-text-main, #0f172a);
+}
+
+.admin-content-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: var(--admin-bg-subtle, #f8fafc);
+}
+
+.admin-main-viewport {
+  padding: 24px 32px;
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .admin-main-viewport {
+    padding: 16px;
+  }
+}

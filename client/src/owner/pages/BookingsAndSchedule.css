@@ -1,0 +1,100 @@
+.owner-bookings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bookings-table-wrapper {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 20px;
+  box-shadow: var(--admin-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.table-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--admin-border, #e5e5e5);
+}
+
+.table-section-title h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+  margin: 0;
+}
+
+.bkg-student-cell,
+.bkg-time-cell,
+.bkg-trainer-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.bkg-student-cell strong,
+.bkg-trainer-cell strong {
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.bkg-phone-sub,
+.bkg-date-sub,
+.bkg-vehicle-sub {
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.bkg-actions-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-confirm-bkg {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--admin-success-bg, #f0fdf4);
+  color: var(--admin-success-text, #15803D);
+  border: 1px solid var(--admin-success-border, #bbf7d0);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--admin-radius-sm, 4px);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-confirm-bkg:hover {
+  background-color: #dcfce7;
+}
+
+.btn-cancel-bkg {
+  background-color: var(--admin-danger-bg, #fef2f2);
+  color: var(--admin-danger-text, #B91C1C);
+  border: 1px solid var(--admin-danger-border, #fecaca);
+  padding: 4px 6px;
+  border-radius: var(--admin-radius-sm, 4px);
+  cursor: pointer;
+}
+
+.btn-manage-slot {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary, #B91C1C);
+  background: none;
+  border: 1px solid var(--admin-border, #e5e5e5);
+  padding: 4px 8px;
+  border-radius: var(--admin-radius-sm, 4px);
+  cursor: pointer;
+}
+
+.btn-manage-slot:hover {
+  background-color: var(--admin-surface-hover, #f1f5f9);
+}

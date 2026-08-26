@@ -1,0 +1,212 @@
+.owner-subscription-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.active-sub-banner {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--admin-shadow-sm);
+  flex-wrap: wrap;
+}
+
+.sub-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sub-plan-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--admin-radius-md, 8px);
+  background-color: var(--color-primary, #B91C1C);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(185, 28, 28, 0.3);
+}
+
+.sub-banner-left h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+  margin: 0;
+}
+
+.sub-banner-left p {
+  font-size: 13px;
+  color: var(--admin-text-muted, #64748b);
+  margin: 3px 0 0 0;
+}
+
+.sub-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: var(--admin-success-bg, #f0fdf4);
+  color: var(--admin-success-text, #15803D);
+  border: 1px solid var(--admin-success-border, #bbf7d0);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.sub-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--admin-success-text, #15803D);
+}
+
+.saas-plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.saas-plan-card {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 24px;
+  box-shadow: var(--admin-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.saas-plan-card.is-current-card {
+  border-color: var(--color-primary, #B91C1C);
+  box-shadow: 0 4px 14px rgba(185, 28, 28, 0.08);
+}
+
+.saas-plan-card.is-popular {
+  border-color: var(--color-primary, #B91C1C);
+}
+
+.plan-popular-ribbon {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.plan-card-header h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+  margin: 0;
+}
+
+.plan-desc {
+  font-size: 12px;
+  color: var(--admin-text-muted, #64748b);
+  margin: 4px 0 0 0;
+  line-height: 1.4;
+}
+
+.plan-price-box {
+  display: flex;
+  align-items: baseline;
+  padding: 14px 0;
+  border-top: 1px solid var(--admin-border, #e5e5e5);
+  border-bottom: 1px solid var(--admin-border, #e5e5e5);
+}
+
+.plan-price-box .currency {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.plan-price-box .price-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.plan-price-box .period {
+  font-size: 13px;
+  color: var(--admin-text-muted, #64748b);
+  margin-left: 4px;
+}
+
+.plan-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+  flex: 1;
+}
+
+.plan-feat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.35;
+}
+
+.plan-card-footer {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.btn-current-plan {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background-color: var(--admin-success-bg, #f0fdf4);
+  color: var(--admin-success-text, #15803D);
+  border: 1px solid var(--admin-success-border, #bbf7d0);
+  border-radius: var(--admin-radius-md, 8px);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: default;
+}
+
+.btn-switch-plan {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background-color: var(--admin-bg-subtle, #fafafa);
+  color: var(--admin-text-main, #1a1a1a);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-md, 8px);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-switch-plan:hover {
+  background-color: var(--admin-accent-subtle, #fef2f2);
+  border-color: var(--admin-accent-border, #fecaca);
+  color: var(--color-primary, #B91C1C);
+}

@@ -1,0 +1,80 @@
+.instructor-students-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.instructor-table-panel {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 20px;
+  box-shadow: var(--admin-shadow-sm);
+}
+
+.ins-student-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.ins-student-cell strong {
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.ins-phone-sub {
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.ins-progress-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 110px;
+}
+
+.ins-progress-track {
+  flex: 1;
+  height: 6px;
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.ins-progress-fill {
+  height: 100%;
+  background-color: var(--color-primary, #B91C1C);
+  border-radius: 999px;
+}
+
+.ins-progress-fill.done {
+  background-color: var(--admin-success-text, #15803D);
+}
+
+.ins-progress-lbl {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.btn-open-notes {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--admin-radius-sm, 4px);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  background-color: var(--admin-bg-subtle, #fafafa);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary, #B91C1C);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-open-notes:hover {
+  background-color: var(--admin-accent-subtle, #fef2f2);
+  border-color: var(--admin-accent-border, #fecaca);
+}

@@ -1,0 +1,353 @@
+.learner-app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+.learner-sidebar {
+  width: 270px;
+  background-color: #ffffff;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-brand {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+}
+
+.sidebar-logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo-text .brand-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.sidebar-logo-text .brand-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-close-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+/* User Card */
+.sidebar-user-card {
+  margin: 1.25rem 1.25rem 0.5rem;
+  padding: 0.85rem;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-accent);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.user-location {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Navigation Links */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.25rem;
+  flex: 1;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav-item:hover {
+  background-color: #f1f5f9;
+  color: var(--text-main);
+}
+
+.sidebar-nav-item.active {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-weight: 700;
+  border: 1px solid var(--border-accent);
+}
+
+.nav-item-icon {
+  flex-shrink: 0;
+}
+
+.active-chevron {
+  margin-left: auto;
+}
+
+/* Wallet Card */
+.sidebar-wallet-card {
+  margin: 0 1.25rem 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-md);
+}
+
+.wallet-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #166534;
+  text-transform: uppercase;
+}
+
+.wallet-balance-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0.4rem 0 0.6rem;
+}
+
+.wallet-amount {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #166534;
+}
+
+.wallet-status {
+  font-size: 0.68rem;
+  color: #15803d;
+  font-weight: 600;
+}
+
+.btn-wallet-view {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #166534;
+  text-decoration: none;
+}
+
+.btn-wallet-view:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.btn-sidebar-logout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.6rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-sidebar-logout:hover {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Main Wrapper & Topbar
+   ========================================================================== */
+.learner-main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.learner-topbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobile-toggle-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+.topbar-welcome h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.topbar-welcome p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topbar-wallet-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #dcfce7;
+  color: #166534;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid #bbf7d0;
+  text-decoration: none;
+}
+
+.btn-topbar-explore {
+  background-color: var(--primary);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-topbar-explore:hover {
+  background-color: #b91c1c;
+}
+
+/* Main Page Content */
+.learner-page-content {
+  padding: 2rem;
+  flex: 1;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+  .learner-sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .learner-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-close-btn {
+    display: block;
+  }
+
+  .mobile-toggle-btn {
+    display: block;
+  }
+
+  .learner-topbar {
+    padding: 1rem;
+  }
+
+  .learner-page-content {
+    padding: 1.25rem;
+  }
+}

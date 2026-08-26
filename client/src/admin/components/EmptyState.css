@@ -1,0 +1,54 @@
+.admin-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px dashed var(--admin-border, #e2e8f0);
+  border-radius: var(--admin-radius-lg, 12px);
+  margin: 1rem 0;
+}
+
+.empty-state-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--admin-radius-md, 8px);
+  background-color: var(--admin-surface-hover, #f1f5f9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.empty-state-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--admin-text-main, #0f172a);
+  margin-bottom: 0.25rem;
+}
+
+.empty-state-msg {
+  font-size: 0.84rem;
+  color: var(--admin-text-muted, #64748b);
+  max-width: 380px;
+  line-height: 1.45;
+}
+
+.btn-empty-state-cta {
+  margin-top: 1rem;
+  background-color: var(--admin-accent, #dc2626);
+  color: var(--admin-accent-contrast, #ffffff);
+  border: none;
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: var(--admin-radius-md, 8px);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-empty-state-cta:hover {
+  opacity: 0.9;
+}

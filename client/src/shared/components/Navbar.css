@@ -1,0 +1,252 @@
+/* ==========================================================================
+   Top Offer Announcement Bar
+   ========================================================================== */
+.top-announcement-bar {
+  background: linear-gradient(90deg, #991b1b, #dc2626, #b91c1c);
+  color: #ffffff;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.announcement-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.announcement-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.announcement-text {
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Main Navbar
+   ========================================================================== */
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main-navbar {
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.25);
+  flex-shrink: 0;
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.brand-highlight {
+  color: var(--primary);
+}
+
+.brand-subtitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Desktop Links */
+.desktop-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 0.4rem 0;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.special-highlight {
+  color: var(--primary);
+  background-color: var(--primary-light);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-accent);
+}
+
+.special-highlight:hover {
+  background-color: #fee2e2;
+}
+
+/* Desktop Auth Buttons */
+.desktop-auth-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.btn-nav-login {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+  border: 1.5px solid #e2e8f0;
+  background: transparent;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-nav-login:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: #fef2f2;
+}
+
+.btn-nav-signup {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  box-shadow: 0 3px 10px rgba(220, 38, 38, 0.25);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-nav-signup:hover {
+  background: linear-gradient(135deg, #b91c1c, #991b1b);
+  transform: translateY(-1px);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Mobile Drawer */
+.mobile-nav-drawer {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .desktop-nav-links,
+  .desktop-auth-btns {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-nav-drawer {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.5rem 1.75rem;
+    background: #ffffff;
+    border-top: 1px solid var(--border-color);
+    gap: 1rem;
+  }
+
+  .mobile-nav-drawer a {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 0.5rem 0;
+  }
+
+  .mobile-auth-drawer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .btn-drawer-login {
+    text-align: center;
+    padding: 0.75rem;
+    border: 1.5px solid #cbd5e1;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  .btn-drawer-signup {
+    text-align: center;
+    padding: 0.75rem;
+    background: var(--primary);
+    color: #ffffff !important;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+  }
+}

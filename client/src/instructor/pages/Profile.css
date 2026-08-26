@@ -1,0 +1,63 @@
+.instructor-profile-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.trainer-cert-badge-card {
+  background: linear-gradient(135deg, #ffffff 0%, #fffbfb 100%);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-left: 4px solid var(--admin-success-text, #15803D);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--admin-shadow-sm);
+  flex-wrap: wrap;
+}
+
+.cert-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cert-shield-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--admin-radius-md, 8px);
+  background-color: #15803D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cert-authority {
+  display: block;
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cert-license {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.cert-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: #f0fdf4;
+  color: #15803D;
+  border: 1px solid #bbf7d0;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}

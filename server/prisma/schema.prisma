@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// 1. User Roles Enum
+enum Role {
+  LEARNER
+  OWNER
+  INSTRUCTOR
+  ADMIN
+}
+
+// 2. User Model (Core Identity for all roles)
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  phone         String    @unique
+  password      String    // Hashed with bcryptjs (never plaintext)
+  role          Role      @default(LEARNER)
+  city          String    @default("Pune")
+  state         String    @default("Maharashtra")
+  isActive      Boolean   @default(true)
+  wallet        Wallet?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+// 3. In-App Wallet Model (1-to-1 with User)
+model Wallet {
+  id            String              @id @default(uuid())
+  userId        String              @unique
+  user          User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  balance       Float               @default(15.0) // ₹15 Introductory Welcome Bonus credited on signup
+  currency      String              @default("INR")
+  transactions  WalletTransaction[]
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+}
+
+// 4. Wallet Transaction History (Immutable Ledger)
+model WalletTransaction {
+  id            String    @id @default(uuid())
+  walletId      String
+  wallet        Wallet    @relation(fields: [walletId], references: [id], onDelete: Cascade)
+  amount        Float     // e.g. +15.0 for signup bonus, -15.0 for slot reservation
+  type          String    // "CREDIT" | "DEBIT"
+  description   String    // e.g. "Introductory App Welcome Bonus"
+  createdAt     DateTime  @default(now())
+}
+
+// 5. Driving School Model (Phase 1 Database Milestone)
+model School {
+  id                    String   @id @default(uuid())
+  name                  String
+  tagline               String
+  rtoApprovalNo         String   @unique
+  establishedYear       Int      @default(2018)
+  phone                 String
+  email                 String
+  address               String
+  city                  String
+  state                 String   @default("Maharashtra")
+  pincode               String
+  rating                Float    @default(4.8)
+  reviewCount           Int      @default(0)
+  startingPrice         Int      @default(999)
+  verified              Boolean  @default(true)
+  femaleInstructor      Boolean  @default(false)
+  twoWheelerSpecialist  Boolean  @default(true)
+  featuredImage         String
+  facilities            String[]
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}

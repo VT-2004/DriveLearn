@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Admin Design System Foundations (Plan v3 - Deep Red Unified Brand)
+   - Strict Grayscale Neutral Base
+   - Single Accent: #B91C1C (Deep Red — matches public site exactly)
+   - 8px Spacing Grid
+   - Strict 5-step Typography Scale
+   - Dark Mode Support
+   ========================================================================== */
+
+:root {
+  /* Core Neutrals */
+  --admin-bg: #ffffff;
+  --admin-bg-subtle: #fafafa;
+  --admin-surface: #ffffff;
+  --admin-surface-hover: #f1f5f9;
+  
+  --admin-border: #e5e5e5;
+  --admin-border-subtle: #f1f5f9;
+  --admin-border-strong: #cbd5e1;
+
+  --admin-text-main: #1a1a1a;
+  --admin-text-muted: #64748b;
+  --admin-text-subtle: #94a3b8;
+
+  /* Single Accent Color (Deep Red #B91C1C) */
+  --admin-accent: #B91C1C;
+  --admin-accent-hover: #7F1414;
+  --admin-accent-subtle: #fef2f2;
+  --admin-accent-border: #fecaca;
+  --admin-accent-contrast: #ffffff;
+
+  /* Semantic Colors (Functional Only) */
+  --admin-danger-bg: #fef2f2;
+  --admin-danger-text: #B91C1C;
+  --admin-danger-border: #fecaca;
+
+  --admin-warning-bg: #fffbeb;
+  --admin-warning-text: #b45309;
+  --admin-warning-border: #fde68a;
+
+  --admin-success-bg: #f0fdf4;
+  --admin-success-text: #15803D;
+  --admin-success-border: #bbf7d0;
+
+  /* Shadows */
+  --admin-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --admin-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --admin-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+
+  /* Radius */
+  --admin-radius-sm: 4px;
+  --admin-radius-md: 8px;
+  --admin-radius-lg: 12px;
+}
+
+/* Dark Mode Palette */
+[data-theme="dark"] {
+  --admin-bg: #090d16;
+  --admin-bg-subtle: #0f172a;
+  --admin-surface: #131d31;
+  --admin-surface-hover: #1e293b;
+
+  --admin-border: #1e293b;
+  --admin-border-subtle: #172239;
+  --admin-border-strong: #334155;
+
+  --admin-text-main: #f8fafc;
+  --admin-text-muted: #94a3b8;
+  --admin-text-subtle: #64748b;
+
+  --admin-accent: #ef4444;
+  --admin-accent-hover: #B91C1C;
+  --admin-accent-subtle: #2d1215;
+  --admin-accent-border: #5c181a;
+  --admin-accent-contrast: #ffffff;
+
+  --admin-danger-bg: #2d1215;
+  --admin-danger-text: #f87171;
+  --admin-danger-border: #5c181a;
+
+  --admin-warning-bg: #2e1d08;
+  --admin-warning-text: #fbbf24;
+  --admin-warning-border: #54340d;
+
+  --admin-success-bg: #0a2717;
+  --admin-success-text: #4ade80;
+  --admin-success-border: #164e2e;
+
+  --admin-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --admin-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --admin-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+}
+
+/* Tabular Numbers Utility */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}

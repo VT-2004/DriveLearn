@@ -1,0 +1,76 @@
+.admin-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  width: fit-content;
+  text-transform: capitalize;
+}
+
+.pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+/* Status variants */
+.pill-verified,
+.pill-active,
+.pill-paid,
+.pill-resolved {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+.pill-verified .pill-dot,
+.pill-active .pill-dot,
+.pill-paid .pill-dot,
+.pill-resolved .pill-dot {
+  background-color: #16a34a;
+}
+
+.pill-pending,
+.pill-under-review,
+.pill-in-progress,
+.pill-waiting {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+.pill-pending .pill-dot,
+.pill-under-review .pill-dot,
+.pill-in-progress .pill-dot,
+.pill-waiting .pill-dot {
+  background-color: #d97706;
+}
+
+.pill-rejected,
+.pill-inactive,
+.pill-unverified,
+.pill-refunded {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+.pill-rejected .pill-dot,
+.pill-inactive .pill-dot,
+.pill-unverified .pill-dot,
+.pill-refunded .pill-dot {
+  background-color: #dc2626;
+}
+
+.pill-expiring,
+.pill-expiring-soon,
+.pill-open {
+  background-color: #ffedd5;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+}
+.pill-expiring .pill-dot,
+.pill-expiring-soon .pill-dot,
+.pill-open .pill-dot {
+  background-color: #ea580c;
+}

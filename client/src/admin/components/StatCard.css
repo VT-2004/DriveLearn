@@ -1,0 +1,102 @@
+.admin-stat-card {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e2e8f0);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 16px;
+  box-shadow: var(--admin-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.15s ease;
+}
+
+.admin-stat-card.clickable {
+  cursor: pointer;
+}
+
+.admin-stat-card.clickable:hover {
+  border-color: var(--admin-accent-border, #fecaca);
+  background-color: var(--admin-surface-hover, #f1f5f9);
+  transform: translateY(-1px);
+  box-shadow: var(--admin-shadow-md);
+}
+
+.stat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-card-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--admin-text-muted, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.stat-card-icon-wrap {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--admin-radius-sm, 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--admin-border, #e2e8f0);
+  background-color: var(--admin-bg-subtle, #f8fafc);
+  color: var(--admin-text-muted, #64748b);
+}
+
+.stat-card-body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.stat-card-value {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--admin-text-main, #0f172a);
+  line-height: 1;
+}
+
+.stat-card-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-card-trend {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.stat-card-trend.trend-positive {
+  background-color: var(--admin-success-bg, #f0fdf4);
+  color: var(--admin-success-text, #166534);
+  border: 1px solid var(--admin-success-border, #bbf7d0);
+}
+
+.stat-card-trend.trend-warning {
+  background-color: var(--admin-warning-bg, #fffbeb);
+  color: var(--admin-warning-text, #b45309);
+  border: 1px solid var(--admin-warning-border, #fde68a);
+}
+
+.stat-card-trend.trend-neutral {
+  background-color: var(--admin-surface-hover, #f1f5f9);
+  color: var(--admin-text-muted, #64748b);
+}
+
+.stat-card-link-icon {
+  color: var(--admin-text-subtle, #94a3b8);
+  transition: transform 0.15s ease;
+}
+
+.admin-stat-card:hover .stat-card-link-icon {
+  transform: translate(2px, -2px);
+  color: var(--admin-accent, #dc2626);
+}

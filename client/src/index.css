@@ -1,0 +1,63 @@
+/* Public Design System Foundations (Plan Spec) */
+:root {
+  --color-primary: #B91C1C;       /* deep red — passes WCAG contrast with white text */
+  --color-primary-dark: #7F1414;  /* hover/pressed states */
+  --color-bg: #FFFFFF;
+  --color-bg-subtle: #FAFAFA;     /* card backgrounds, alternating sections */
+  --color-text: #1A1A1A;
+  --color-text-on-primary: #FFFFFF; /* only text color allowed on red backgrounds */
+  --color-border: #E5E5E5;
+  --color-success: #15803D;       /* verified badges, positive stats — used sparingly */
+  --color-warning: #B45309;       /* "offer ends soon" type urgency */
+
+  /* Legacy fallbacks */
+  --primary: var(--color-primary);
+  --primary-hover: var(--color-primary-dark);
+  --primary-light: #fef2f2;
+  --text-main: var(--color-text);
+  --text-muted: #64748b;
+  --bg-page: var(--color-bg);
+  --bg-card: var(--color-bg);
+  --border-color: var(--color-border);
+  --border-accent: #fecaca;
+  --success: var(--color-success);
+  --warning: var(--color-warning);
+  --danger: var(--color-primary);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}

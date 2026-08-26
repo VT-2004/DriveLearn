@@ -1,0 +1,176 @@
+.learner-bookings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bookings-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tabs-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-md, 8px);
+  padding: 4px;
+}
+
+.tab-btn {
+  padding: 6px 14px;
+  border-radius: var(--admin-radius-sm, 6px);
+  border: none;
+  background: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--admin-text-muted, #64748b);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tab-btn:hover {
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.tab-btn.active {
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+}
+
+.learner-table-card {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 20px;
+  box-shadow: var(--admin-shadow-sm);
+}
+
+.bkg-slot-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.bkg-time {
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.bkg-date-sub {
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.bkg-location-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.bkg-location-cell strong {
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.bkg-school-sub {
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.bkg-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-action-reschedule {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--admin-radius-sm, 4px);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  background-color: var(--admin-bg-subtle, #fafafa);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary, #B91C1C);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-action-reschedule:hover {
+  background-color: var(--admin-accent-subtle, #fef2f2);
+  border-color: var(--admin-accent-border, #fecaca);
+}
+
+.btn-action-cancel {
+  padding: 4px 6px;
+  border-radius: var(--admin-radius-sm, 4px);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  background: none;
+  color: var(--admin-text-muted, #64748b);
+  cursor: pointer;
+}
+
+.btn-action-cancel:hover {
+  background-color: #fef2f2;
+  color: var(--admin-danger-text, #B91C1C);
+}
+
+.bkg-locked-action-note {
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+  font-weight: 600;
+}
+
+/* Modal */
+.learner-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.learner-modal-dialog {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-lg, 12px);
+  box-shadow: var(--admin-shadow-lg);
+  max-width: 520px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.reschedule-info-box {
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-md, 8px);
+  padding: 12px 14px;
+}
+
+.reschedule-info-box p {
+  font-size: 13px;
+  color: var(--admin-text-main, #1a1a1a);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.modal-alert-note {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #b45309;
+}

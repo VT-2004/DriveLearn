@@ -1,0 +1,77 @@
+.review-school-context {
+  background-color: var(--admin-bg-subtle, #fafafa);
+  border: 1px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-md, 8px);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review-school-context strong {
+  font-size: 14px;
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.review-school-context span {
+  font-size: 11px;
+  color: var(--admin-text-muted, #64748b);
+}
+
+.star-rating-selector-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+  border-top: 1px solid var(--admin-border, #e5e5e5);
+  border-bottom: 1px solid var(--admin-border, #e5e5e5);
+}
+
+.star-rating-selector-wrap label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--admin-text-main, #1a1a1a);
+  text-align: center;
+}
+
+.star-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-star-pick {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  transition: transform 0.15s ease;
+}
+
+.btn-star-pick:hover {
+  transform: scale(1.15);
+}
+
+.rating-grade-lbl {
+  font-size: 12px;
+  font-weight: 800;
+  color: #b45309;
+}
+
+.review-verified-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.review-verified-hint p {
+  font-size: 11px;
+  color: #14532d;
+  margin: 0;
+  line-height: 1.35;
+}
