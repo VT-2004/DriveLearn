@@ -45,7 +45,7 @@ export default function Wallet() {
 
       {/* Explanatory Banner */}
       <div className="wallet-info-note">
-        <Info size={18} color="var(--color-primary, #B91C1C)" flexShrink={0} />
+        <Info size={18} color="var(--color-primary, #B91C1C)" style={{ flexShrink: 0 }} />
         <div>
           <strong>How your ₹15 in-app wallet bonus worked:</strong>
           <p>

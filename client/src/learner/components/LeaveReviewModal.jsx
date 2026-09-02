@@ -82,7 +82,7 @@ export default function LeaveReviewModal({ schoolName = 'Sai Motor & 2-Wheeler A
           </div>
 
           <div className="review-verified-hint">
-            <ShieldCheck size={14} color="#15803D" flexShrink={0} />
+            <ShieldCheck size={14} color="#15803D" style={{ flexShrink: 0 }} />
             <p>
               Your verified review helps students across Pune find certified 2-wheeler & car training schools.
             </p>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CheckCircle2, Clock, Award, ShieldCheck, User, MessageSquare, Star } from 'lucide-react';
+import { CheckCircle2, Clock, Award, ShieldCheck, User, MessageSquare, Star, Calendar } from 'lucide-react';
 import StatCard from '../../admin/components/StatCard';
 import ProgressStepper from '../components/ProgressStepper';
 import LeaveReviewModal from '../components/LeaveReviewModal';
@@ -54,28 +54,28 @@ export default function Progress() {
           value={`${learnerCourseSummary.attendancePercent}%`}
           trend="8 Sessions Completed"
           trendType="up"
-          icon="Calendar"
+          icon={<Calendar size={18} />}
         />
         <StatCard
           label="Lessons Completed"
           value={`${learnerCourseSummary.lessonsCompleted} of ${learnerCourseSummary.totalLessons}`}
           trend="80% Total Time"
           trendType="up"
-          icon="CheckCircle"
+          icon={<CheckCircle2 size={18} />}
         />
         <StatCard
           label="Lessons Remaining"
           value={`${learnerCourseSummary.totalLessons - learnerCourseSummary.lessonsCompleted} Sessions`}
           trend="Estimated DL: 28 Aug"
           trendType="neutral"
-          icon="Clock"
+          icon={<Clock size={18} />}
         />
         <StatCard
           label="Skills Mastered"
           value={`${completedSkillsCount} of ${learnerSkillChecklist.length}`}
           trend="Warje 8-Track Cleared"
           trendType="up"
-          icon="Award"
+          icon={<Award size={18} />}
         />
       </div>
 
