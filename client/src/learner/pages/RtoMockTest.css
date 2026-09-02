@@ -163,7 +163,7 @@
   color: #c2410c;
 }
 
-/* Quiz Simulator Shell */
+/* Main Simulator Shell */
 .quiz-simulator-shell {
   background-color: var(--admin-surface, #ffffff);
   border: 1px solid var(--admin-border, #e2e8f0);
@@ -172,23 +172,198 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-.quiz-status-bar {
+/* =========================================================
+   LOBBY SCREEN STYLES
+   ========================================================= */
+.exam-lobby-container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hall-ticket-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--admin-radius-md, 8px);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hall-ticket-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.hall-ticket-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hall-ticket-title h3 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.portal-live-pill {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #15803D;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.ticket-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.ticket-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cell-lbl {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.cell-val {
+  font-size: 13px;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+/* Exam Rules Card */
+.exam-rules-card {
+  background-color: #fffaf5;
+  border: 1px solid #fed7aa;
+  border-radius: var(--admin-radius-md, 8px);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exam-rules-card h4 {
+  font-size: 13px;
+  font-weight: 800;
+  color: #7c2d12;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exam-instructions-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: #9a3412;
+  line-height: 1.45;
+}
+
+.exam-instructions-list strong {
+  color: #7c2d12;
+}
+
+/* Lobby Action Bar */
+.lobby-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.lobby-alert-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #15803D;
+  font-weight: 600;
+}
+
+.btn-start-examination {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(185, 28, 28, 0.25);
+  transition: all 0.15s ease;
+}
+
+.btn-start-examination:hover {
+  background-color: #991b1b;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   ACTIVE EXAMINATION IN PROGRESS STYLES
+   ========================================================= */
+.active-exam-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.active-exam-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 20px;
-  background-color: #fafbfc;
-  border-bottom: 1px solid var(--admin-border, #e2e8f0);
+  background-color: #f8fafc;
+  border-bottom: 1.5px solid var(--admin-border, #e2e8f0);
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.quiz-progress-stat {
+.toolbar-left-info {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
-.quiz-progress-stat strong {
-  font-size: 14px;
+.candidate-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.question-count-badge {
+  font-size: 13px;
+  font-weight: 800;
   color: #0f172a;
 }
 
@@ -199,6 +374,13 @@
   color: #475569;
   padding: 2px 8px;
   border-radius: 999px;
+}
+
+.toolbar-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .timer-badge {
@@ -223,6 +405,45 @@
   0% { opacity: 1; }
   50% { opacity: 0.5; }
   100% { opacity: 1; }
+}
+
+.btn-toolbar-end {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #fca5a5;
+  background-color: #fff1f2;
+  color: #be123c;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-toolbar-end:hover {
+  background-color: #ffe4e6;
+}
+
+.btn-toolbar-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  background-color: #15803D;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  box-shadow: 0 1px 3px rgba(21, 128, 61, 0.2);
+}
+
+.btn-toolbar-submit:hover {
+  background-color: #166534;
 }
 
 /* Active Question View */
@@ -410,7 +631,7 @@
   color: #15803D;
 }
 
-/* Controls */
+/* Nav Controls */
 .quiz-controls-row {
   display: flex;
   align-items: center;
@@ -481,7 +702,9 @@
   background-color: #991b1b;
 }
 
-/* Post-Test Result & Review */
+/* =========================================================
+   RESULTS & REVIEW SCREEN
+   ========================================================= */
 .quiz-results-container {
   padding: 24px;
   display: flex;
@@ -547,6 +770,12 @@
   line-height: 1.4;
 }
 
+.result-actions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .btn-retake-quiz {
   display: inline-flex;
   align-items: center;
@@ -560,6 +789,24 @@
   font-weight: 800;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-exit-lobby {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-exit-lobby:hover {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .answers-review-section h3 {
@@ -677,6 +924,86 @@
   line-height: 1.4;
 }
 
+/* =========================================================
+   CONFIRMATION MODAL STYLES
+   ========================================================= */
+.exam-confirm-dialog {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.confirm-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exam-confirm-dialog h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.exam-confirm-dialog p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.confirm-dialog-actions button {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-confirm-submit {
+  background-color: #15803D;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-confirm-submit:hover {
+  background-color: #166534;
+}
+
+.btn-confirm-end {
+  background-color: #B91C1C;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-confirm-end:hover {
+  background-color: #991b1b;
+}
+
 @media (max-width: 840px) {
   .cmvr-countdown-card {
     grid-template-columns: 1fr;
@@ -687,5 +1014,15 @@
     border-top: 1px solid #ffedd5;
     padding-left: 0;
     padding-top: 12px;
+  }
+
+  .ticket-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .ticket-meta-grid {
+    grid-template-columns: 1fr;
   }
 }
