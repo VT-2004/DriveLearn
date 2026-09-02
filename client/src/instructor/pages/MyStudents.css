@@ -78,3 +78,33 @@
   background-color: var(--admin-accent-subtle, #fef2f2);
   border-color: var(--admin-accent-border, #fecaca);
 }
+
+.btn-view-dossier {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--admin-radius-sm, 4px);
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-view-dossier:hover {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+  color: var(--color-primary, #B91C1C);
+}
+
+.student-name-link {
+  transition: color 0.15s ease;
+}
+
+.ins-student-cell:hover .student-name-link {
+  color: var(--color-primary, #B91C1C);
+  text-decoration: underline;
+}

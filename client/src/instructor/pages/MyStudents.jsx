@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Users, MessageSquare, Search, Phone, CheckCircle, Award } from 'lucide-react';
+import { Users, MessageSquare, Search, Phone, CheckCircle, Award, Eye } from 'lucide-react';
 import DataTable from '../../admin/components/DataTable';
 import StatusPill from '../../admin/components/StatusPill';
 import AddNoteModal from '../components/AddNoteModal';
+import StudentDetailModal from '../components/StudentDetailModal';
 import { instructorAssignedStudents } from '../data/dummyData';
 import './MyStudents.css';
 
@@ -10,6 +11,7 @@ export default function MyStudents() {
   const [students, setStudents] = useState(instructorAssignedStudents);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeNoteStudent, setActiveNoteStudent] = useState(null);
+  const [selectedDossierStudent, setSelectedDossierStudent] = useState(null);
 
   const filteredStudents = students.filter(
     (s) =>
@@ -31,8 +33,13 @@ export default function MyStudents() {
     {
       header: 'Learner & Contact',
       render: (row) => (
-        <div className="ins-student-cell">
-          <strong>{row.name}</strong>
+        <div 
+          className="ins-student-cell" 
+          onClick={() => setSelectedDossierStudent(row)}
+          style={{ cursor: 'pointer' }}
+          title="Click to view complete student training dossier"
+        >
+          <strong className="student-name-link">{row.name}</strong>
           <span className="ins-phone-sub tabular-nums">{row.phone} • ID: {row.id}</span>
         </div>
       ),
@@ -64,16 +71,26 @@ export default function MyStudents() {
       render: (row) => <StatusPill status={row.status} />,
     },
     {
-      header: 'Trainer Feedback',
+      header: 'Actions',
       render: (row) => (
-        <button
-          onClick={() => setActiveNoteStudent(row)}
-          className="btn-open-notes"
-          title="Add or update session feedback"
-        >
-          <MessageSquare size={13} />
-          <span>Feedback Notes</span>
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <button
+            onClick={() => setSelectedDossierStudent(row)}
+            className="btn-view-dossier"
+            title="View complete student training dossier"
+          >
+            <Eye size={13} />
+            <span>Student Info</span>
+          </button>
+          <button
+            onClick={() => setActiveNoteStudent(row)}
+            className="btn-open-notes"
+            title="Add or update session feedback"
+          >
+            <MessageSquare size={13} />
+            <span>Notes</span>
+          </button>
+        </div>
       ),
     },
   ];
@@ -85,7 +102,7 @@ export default function MyStudents() {
         <div>
           <h1>My Assigned Learners Roster</h1>
           <p>
-            Track student batch progress, review driving milestones, and submit practical session guidance.
+            Review complete student profiles, verify Parivahan Learner's Licenses (LL), track vehicle allocations, and log practical feedback.
           </p>
         </div>
       </div>
@@ -102,7 +119,16 @@ export default function MyStudents() {
         />
       </div>
 
-      {/* 3. Add Note Modal */}
+      {/* 3. Student Profile Dossier Modal */}
+      {selectedDossierStudent && (
+        <StudentDetailModal
+          student={selectedDossierStudent}
+          onClose={() => setSelectedDossierStudent(null)}
+          onOpenFeedback={(s) => setActiveNoteStudent(s)}
+        />
+      )}
+
+      {/* 4. Add Note Modal */}
       {activeNoteStudent && (
         <AddNoteModal
           student={activeNoteStudent}
