@@ -54,7 +54,9 @@ export default function Dashboard() {
           trend="8 of 9 Sessions Present"
           trendType="up"
           icon={<Calendar size={18} />}
-          onClick={() => navigate('/learner/progress')}
+          onClick={() => {
+            document.getElementById('attendance-calendar-section')?.scrollIntoView({ behavior: 'smooth' });
+          }}
         />
         <StatCard
           label="Lessons Completed"
@@ -140,7 +142,7 @@ export default function Dashboard() {
       </div>
 
       {/* Sub-section D & E: Attendance Calendar & Recent Instructor Feedback Two-Column Split */}
-      <div className="dashboard-charts-split-grid">
+      <div className="dashboard-charts-split-grid" id="attendance-calendar-section">
         {/* Sub-section D: Monthly Attendance Calendar */}
         <AttendanceCalendar
           completedDates={completedAttendanceDates}
