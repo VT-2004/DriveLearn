@@ -2,13 +2,13 @@
 // Authentic Maharashtra driving school context: Warje 8-track, Karve Road, Swift dual control, RTO Form 5A
 
 export const INITIAL_CONVERSATIONS = [
-  // 1. Learner ↔ Assigned Instructor
+  // 1. Learner (Pooja Kulkarni) ↔ Trainer 1: Sunita Deshmukh (2-Wheeler Specialist)
   {
     id: 'conv-learner-instructor-1',
     type: 'LEARNER_INSTRUCTOR',
     participants: {
-      learner: { id: 'usr-learner-1', name: 'Pooja Kulkarni', role: 'Learner', city: 'Pune (Kothrud)' },
-      instructor: { id: 'usr-inst-1', name: 'Sunita Deshmukh', role: 'Certified Instructor', school: 'Sai Motor & 2-Wheeler Academy' },
+      learner: { id: 'usr-learner-1', name: 'Pooja Kulkarni', role: 'Learner (Combo)', city: 'Pune (Kothrud)' },
+      instructor: { id: 'usr-inst-1', name: 'Sunita Deshmukh', role: '2-Wheeler Track Specialist', school: 'Sai Motor Academy' },
     },
     unreadCount: 1,
     lastActivity: '10:45 AM',
@@ -23,9 +23,9 @@ export const INITIAL_CONVERSATIONS = [
         id: 'm1',
         senderId: 'usr-learner-1',
         senderName: 'Pooja Kulkarni',
-        text: 'Good morning Sunita ma’am! Should I wait at Garware College Gate 2 for today’s 04:00 PM session?',
+        text: 'Good morning Sunita ma’am! Should I wait at Garware College Gate 2 for today’s 04:00 PM 2-wheeler session?',
         timestamp: '10:15 AM',
-        isMe: false, // contextual
+        isMe: false,
       },
       {
         id: 'm2',
@@ -53,17 +53,62 @@ export const INITIAL_CONVERSATIONS = [
       },
     ],
   },
+
+  // 2. Learner (Pooja Kulkarni) ↔ Trainer 2: Rahul Shinde (4-Wheeler Car Specialist)
   {
     id: 'conv-learner-instructor-2',
     type: 'LEARNER_INSTRUCTOR',
     participants: {
-      learner: { id: 'usr-learner-2', name: 'Siddharth More', role: 'Learner', city: 'Pune (Deccan)' },
-      instructor: { id: 'usr-inst-1', name: 'Sunita Deshmukh', role: 'Certified Instructor', school: 'Sai Motor & 2-Wheeler Academy' },
+      learner: { id: 'usr-learner-1', name: 'Pooja Kulkarni', role: 'Learner (Combo)', city: 'Pune (Kothrud)' },
+      instructor: { id: 'usr-inst-2', name: 'Rahul Shinde', role: '4-Wheeler Car Specialist', school: 'Sai Motor Academy' },
     },
     unreadCount: 0,
     lastActivity: 'Yesterday',
     quickReplies: [
-      'Ready for 05:15 PM combo batch',
+      'Ready for dual-control car practice',
+      'Got my Parivahan LMV Learner License',
+      'At Kothrud Metro Pillar Ring'
+    ],
+    messages: [
+      {
+        id: 'm21',
+        senderId: 'usr-learner-1',
+        senderName: 'Pooja Kulkarni',
+        text: 'Namaste Rahul sir! Since I am enrolled in the Combo Package, when does our 4-wheeler practical driving module start?',
+        timestamp: 'Yesterday 03:00 PM',
+        isMe: false,
+      },
+      {
+        id: 'm22',
+        senderId: 'usr-inst-2',
+        senderName: 'Rahul Shinde',
+        text: 'Namaste Pooja! As soon as Sunita ma’am signs off on your 2-wheeler 8-track test this Friday, our first Maruti Swift dual-control session starts Monday 08:00 AM at Kothrud Ring.',
+        timestamp: 'Yesterday 03:15 PM',
+        isMe: false,
+      },
+      {
+        id: 'm23',
+        senderId: 'usr-learner-1',
+        senderName: 'Pooja Kulkarni',
+        text: 'Perfect sir! Looking forward to learning hill-start clutch control.',
+        timestamp: 'Yesterday 03:20 PM',
+        isMe: false,
+      },
+    ],
+  },
+
+  // 3. Instructor (Sunita Deshmukh) ↔ Student 2: Siddharth More
+  {
+    id: 'conv-learner-instructor-3',
+    type: 'LEARNER_INSTRUCTOR',
+    participants: {
+      learner: { id: 'usr-learner-2', name: 'Siddharth More', role: 'Learner', city: 'Pune (Deccan)' },
+      instructor: { id: 'usr-inst-1', name: 'Sunita Deshmukh', role: 'Certified Instructor', school: 'Sai Motor Academy' },
+    },
+    unreadCount: 0,
+    lastActivity: 'Yesterday',
+    quickReplies: [
+      'Ready for 05:15 PM batch',
       'Practiced half-clutch at home',
       'At Kothrud Metro Pillar Ring'
     ],
@@ -72,7 +117,7 @@ export const INITIAL_CONVERSATIONS = [
         id: 'm201',
         senderId: 'usr-learner-2',
         senderName: 'Siddharth More',
-        text: 'Ma’am, for the 4-wheeler clutch practice, are we using the Swift Dzire today?',
+        text: 'Ma’am, will today’s 05:15 PM batch focus on parallel parking or road maneuvers?',
         timestamp: 'Yesterday 04:30 PM',
         isMe: false,
       },
@@ -80,14 +125,49 @@ export const INITIAL_CONVERSATIONS = [
         id: 'm202',
         senderId: 'usr-inst-1',
         senderName: 'Sunita Deshmukh',
-        text: 'Yes Siddharth, Maruti Swift (MH-12-AB-4471) with dual controls. Focus will be on 2nd gear downshifts.',
+        text: 'Today is parallel parking with cones at the Deccan Gymkhana practice ground, Siddharth.',
         timestamp: 'Yesterday 04:40 PM',
         isMe: false,
       },
     ],
   },
 
-  // 2. Instructor ↔ School Owner
+  // 4. Instructor (Sunita Deshmukh) ↔ Student 3: Sneha Joshi
+  {
+    id: 'conv-learner-instructor-4',
+    type: 'LEARNER_INSTRUCTOR',
+    participants: {
+      learner: { id: 'usr-learner-3', name: 'Sneha Joshi', role: 'Learner (2W)', city: 'Pune (Shivajinagar)' },
+      instructor: { id: 'usr-inst-1', name: 'Sunita Deshmukh', role: 'Certified Instructor', school: 'Sai Motor Academy' },
+    },
+    unreadCount: 0,
+    lastActivity: '2 days ago',
+    quickReplies: [
+      'Requesting shift to 07:00 AM batch',
+      'Completed Form 2 LL test online',
+      'At Alandi Road ground'
+    ],
+    messages: [
+      {
+        id: 'm301',
+        senderId: 'usr-learner-3',
+        senderName: 'Sneha Joshi',
+        text: 'Sunita ma’am, I cleared the RTO computer test on Sarathi portal today! Got my Learner License number.',
+        timestamp: '2 days ago',
+        isMe: false,
+      },
+      {
+        id: 'm302',
+        senderId: 'usr-inst-1',
+        senderName: 'Sunita Deshmukh',
+        text: 'Hearty congratulations Sneha! Bring a physical printout tomorrow for your first balance and braking session.',
+        timestamp: '2 days ago',
+        isMe: false,
+      },
+    ],
+  },
+
+  // 5. Instructor (Sunita Deshmukh) ↔ School Owner (Rajesh Kadam)
   {
     id: 'conv-inst-owner-1',
     type: 'INSTRUCTOR_OWNER',
@@ -105,7 +185,7 @@ export const INITIAL_CONVERSATIONS = [
     ],
     messages: [
       {
-        id: 'm301',
+        id: 'm401',
         senderId: 'usr-inst-1',
         senderName: 'Sunita Deshmukh',
         text: 'Namaste Rajesh sir, completed the 08:00 AM batch at Warje 8-track. Both students cleared reverse parking.',
@@ -113,7 +193,7 @@ export const INITIAL_CONVERSATIONS = [
         isMe: false,
       },
       {
-        id: 'm302',
+        id: 'm402',
         senderId: 'usr-owner-1',
         senderName: 'Rajesh Kadam',
         text: 'Very good Sunita. How is vehicle MH-12-AB-4471 performing?',
@@ -121,7 +201,7 @@ export const INITIAL_CONVERSATIONS = [
         isMe: false,
       },
       {
-        id: 'm303',
+        id: 'm403',
         senderId: 'usr-inst-1',
         senderName: 'Sunita Deshmukh',
         text: 'Sir, the clutch pedal has slight extra play on the dual control side. Recommend Ramesh check the cable before the 04:00 PM batch.',
@@ -129,7 +209,7 @@ export const INITIAL_CONVERSATIONS = [
         isMe: false,
       },
       {
-        id: 'm304',
+        id: 'm404',
         senderId: 'usr-owner-1',
         senderName: 'Rajesh Kadam',
         text: 'Noted immediately. I have asked mechanic Ramesh to visit Karve Road branch by 02:00 PM. Keep me posted.',
@@ -138,6 +218,8 @@ export const INITIAL_CONVERSATIONS = [
       },
     ],
   },
+
+  // 6. Instructor (Rahul Shinde) ↔ School Owner (Rajesh Kadam)
   {
     id: 'conv-inst-owner-2',
     type: 'INSTRUCTOR_OWNER',
@@ -154,7 +236,7 @@ export const INITIAL_CONVERSATIONS = [
     ],
     messages: [
       {
-        id: 'm401',
+        id: 'm501',
         senderId: 'usr-inst-2',
         senderName: 'Rahul Shinde',
         text: 'Sir, 4 students scheduled for RTO mock test at Alandi Road track tomorrow 10 AM.',
@@ -164,7 +246,7 @@ export const INITIAL_CONVERSATIONS = [
     ],
   },
 
-  // 3. Super Admin ↔ School Owner (Official Compliance & Notices)
+  // 7. Super Admin ↔ School Owner (Official Compliance & Notices)
   {
     id: 'conv-admin-owner-1',
     type: 'OWNER_ADMIN',
@@ -182,7 +264,7 @@ export const INITIAL_CONVERSATIONS = [
     ],
     messages: [
       {
-        id: 'm501',
+        id: 'm601',
         senderId: 'usr-admin-1',
         senderName: 'DriveLearn Maharashtra Compliance Desk',
         isOfficialNotice: true,
@@ -192,7 +274,7 @@ export const INITIAL_CONVERSATIONS = [
         isMe: false,
       },
       {
-        id: 'm502',
+        id: 'm602',
         senderId: 'usr-owner-1',
         senderName: 'Rajesh Kadam (Sai Motors)',
         text: 'Acknowledged. Rahul Shinde has completed the refresher training course. We have submitted the Form 2 renewal docket to Pune RTO yesterday.',
@@ -200,7 +282,7 @@ export const INITIAL_CONVERSATIONS = [
         isMe: false,
       },
       {
-        id: 'm503',
+        id: 'm603',
         senderId: 'usr-admin-1',
         senderName: 'DriveLearn Maharashtra Compliance Desk',
         isOfficialNotice: true,

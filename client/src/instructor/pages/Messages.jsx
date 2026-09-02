@@ -6,9 +6,15 @@ import './Messages.css';
 
 export default function Messages() {
   const [activeTab, setActiveTab] = useState('STUDENTS'); // 'STUDENTS' | 'OWNER'
+  const currentInstructorId = 'usr-inst-1'; // Sunita Deshmukh (Senior Instructor)
 
-  const studentConvs = INITIAL_CONVERSATIONS.filter((c) => c.type === 'LEARNER_INSTRUCTOR');
-  const ownerConvs = INITIAL_CONVERSATIONS.filter((c) => c.type === 'INSTRUCTOR_OWNER');
+  // WhatsApp-style: Instructor sees all assigned students as separate, private 1-to-1 threads
+  const studentConvs = INITIAL_CONVERSATIONS.filter(
+    (c) => c.type === 'LEARNER_INSTRUCTOR' && c.participants.instructor?.id === currentInstructorId
+  );
+  const ownerConvs = INITIAL_CONVERSATIONS.filter(
+    (c) => c.type === 'INSTRUCTOR_OWNER' && c.participants.instructor?.id === currentInstructorId
+  );
 
   const displayedConversations = activeTab === 'STUDENTS' ? studentConvs : ownerConvs;
 

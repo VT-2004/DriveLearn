@@ -22,6 +22,14 @@ export default function ChatWindow({
 
   const activeConversation = convList.find((c) => c.id === activeConvId);
 
+  // Sync state if conversations prop updates
+  useEffect(() => {
+    setConvList(conversations);
+    if (!conversations.some((c) => c.id === activeConvId)) {
+      setActiveConvId(conversations[0]?.id || null);
+    }
+  }, [conversations]);
+
   // Auto-scroll to bottom of active message stream
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

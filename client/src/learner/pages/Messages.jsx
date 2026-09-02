@@ -5,9 +5,11 @@ import { INITIAL_CONVERSATIONS } from '../../shared/data/messagesData';
 import './Messages.css';
 
 export default function Messages() {
-  // Learner only participates in LEARNER_INSTRUCTOR conversations
+  // Current logged in learner: Pooja Kulkarni ('usr-learner-1')
+  // Receives 1-to-1 threads from all certified instructors assigned to her (e.g. 2W & 4W)
+  const currentLearnerId = 'usr-learner-1';
   const learnerConversations = INITIAL_CONVERSATIONS.filter(
-    (c) => c.type === 'LEARNER_INSTRUCTOR'
+    (c) => c.type === 'LEARNER_INSTRUCTOR' && c.participants.learner?.id === currentLearnerId
   );
 
   return (
