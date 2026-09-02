@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   Users, UserCheck, Calendar, CreditCard, Wallet, Award, 
-  AlertTriangle, ArrowRight, Clock, Star, ShieldAlert, ChevronRight, Car, AlertOctagon, MapPin 
+  AlertTriangle, ArrowRight, Clock, Star, ShieldAlert, ChevronRight, Car, AlertOctagon, MapPin, CloudRain 
 } from 'lucide-react';
 import { 
   AreaChart, Area, XAxis, YAxis, Tooltip, 
@@ -12,6 +12,7 @@ import StatCard from '../../admin/components/StatCard';
 import StatusPill from '../../admin/components/StatusPill';
 import SkeletonLoader from '../../admin/components/SkeletonLoader';
 import EmptyState from '../../admin/components/EmptyState';
+import WeatherBroadcastModal from '../../shared/components/WeatherBroadcastModal';
 import { 
   ownerSummaryStats, 
   ownerRevenueChartData, 
@@ -34,6 +35,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [subscriptionLapsed, setSubscriptionLapsed] = useState(false); // Gap Audit: Lapsed Subscription State
+  const [showWeatherModal, setShowWeatherModal] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 200);
@@ -55,17 +57,40 @@ export default function Dashboard() {
           </p>
         </div>
 
-        {/* Demo Toggle to test Subscription Lapsed State */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', color: '#64748b' }}>
-          <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
-            <input
-              type="checkbox"
-              checked={subscriptionLapsed}
-              onChange={(e) => setSubscriptionLapsed(e.target.checked)}
-              style={{ accentColor: '#B91C1C' }}
-            />
-            <span>Preview Lapsed Subscription State</span>
-          </label>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+          <button
+            type="button"
+            onClick={() => setShowWeatherModal(true)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              backgroundColor: '#fffbeb',
+              border: '1.5px solid #fde68a',
+              borderRadius: '8px',
+              padding: '6px 12px',
+              color: '#b45309',
+              fontSize: '12px',
+              fontWeight: 800,
+              cursor: 'pointer'
+            }}
+          >
+            <CloudRain size={14} />
+            <span>Broadcast Monsoon Alert</span>
+          </button>
+
+          {/* Demo Toggle to test Subscription Lapsed State */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', color: '#64748b' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
+              <input
+                type="checkbox"
+                checked={subscriptionLapsed}
+                onChange={(e) => setSubscriptionLapsed(e.target.checked)}
+                style={{ accentColor: '#B91C1C' }}
+              />
+              <span>Preview Lapsed Subscription State</span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -327,6 +352,14 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      {/* Weather Broadcast Modal */}
+      {showWeatherModal && (
+        <WeatherBroadcastModal
+          onClose={() => setShowWeatherModal(false)}
+          publisherRole="Owner"
+        />
+      )}
     </div>
   );
 }

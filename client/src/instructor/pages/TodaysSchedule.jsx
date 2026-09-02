@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Clock, Calendar, MapPin, Play, CheckCircle, Fuel } from 'lucide-react';
+import { Clock, Calendar, MapPin, Play, CheckCircle, Fuel, CloudRain } from 'lucide-react';
 import LessonRow from '../components/LessonRow';
 import StartLessonModal from '../components/StartLessonModal';
 import FuelOdometerModal from '../components/FuelOdometerModal';
+import WeatherBroadcastModal from '../../shared/components/WeatherBroadcastModal';
 import { instructorTodaysLessons } from '../data/dummyData';
 import './TodaysSchedule.css';
 
@@ -10,6 +11,7 @@ export default function TodaysSchedule() {
   const [lessons, setLessons] = useState(instructorTodaysLessons);
   const [activeLessonModal, setActiveLessonModal] = useState(null);
   const [showFuelModal, setShowFuelModal] = useState(false);
+  const [showWeatherModal, setShowWeatherModal] = useState(false);
 
   const handleStartLesson = (lesson) => {
     setActiveLessonModal(lesson);
@@ -38,25 +40,47 @@ export default function TodaysSchedule() {
           </p>
         </div>
 
-        <button
-          onClick={() => setShowFuelModal(true)}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '6px',
-            padding: '8px 14px',
-            borderRadius: '8px',
-            border: '1px solid #fed7aa',
-            backgroundColor: '#fffaf5',
-            color: '#c2410c',
-            fontSize: '12px',
-            fontWeight: 800,
-            cursor: 'pointer'
-          }}
-        >
-          <Fuel size={14} />
-          <span>Log Daily Fuel & Odometer</span>
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          <button
+            onClick={() => setShowWeatherModal(true)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '8px 14px',
+              borderRadius: '8px',
+              border: '1px solid #fde68a',
+              backgroundColor: '#fffbeb',
+              color: '#b45309',
+              fontSize: '12px',
+              fontWeight: 800,
+              cursor: 'pointer'
+            }}
+          >
+            <CloudRain size={14} />
+            <span>Monsoon Weather Delay</span>
+          </button>
+
+          <button
+            onClick={() => setShowFuelModal(true)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '8px 14px',
+              borderRadius: '8px',
+              border: '1px solid #fed7aa',
+              backgroundColor: '#fffaf5',
+              color: '#c2410c',
+              fontSize: '12px',
+              fontWeight: 800,
+              cursor: 'pointer'
+            }}
+          >
+            <Fuel size={14} />
+            <span>Log Daily Fuel & Odometer</span>
+          </button>
+        </div>
       </div>
 
       {/* 2. Full Timeline Stack */}
@@ -84,6 +108,14 @@ export default function TodaysSchedule() {
         <FuelOdometerModal
           onClose={() => setShowFuelModal(false)}
           onSave={() => setShowFuelModal(false)}
+        />
+      )}
+
+      {/* 5. Monsoon Weather Broadcast Modal */}
+      {showWeatherModal && (
+        <WeatherBroadcastModal
+          onClose={() => setShowWeatherModal(false)}
+          publisherRole="Instructor"
         />
       )}
     </div>

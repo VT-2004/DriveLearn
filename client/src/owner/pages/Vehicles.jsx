@@ -5,6 +5,7 @@ import StatusPill from '../../admin/components/StatusPill';
 import SkeletonLoader from '../../admin/components/SkeletonLoader';
 import EmptyState from '../../admin/components/EmptyState';
 import VehicleExpiryBadge from '../components/VehicleExpiryBadge';
+import VehicleDetailModal from '../components/VehicleDetailModal';
 import { ownerVehiclesList } from '../data/dummyData';
 import './Vehicles.css';
 
@@ -69,6 +70,7 @@ const INITIAL_FUEL_AUDIT_LOGS = [
 export default function Vehicles() {
   const [vehicles, setVehicles] = useState(ownerVehiclesList);
   const [activeTab, setActiveTab] = useState('REGISTRY'); // 'REGISTRY' | 'FUEL_AUDIT'
+  const [selectedVehicleForDetails, setSelectedVehicleForDetails] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [typeFilter, setTypeFilter] = useState('ALL');
   const [loading, setLoading] = useState(true);
@@ -135,7 +137,7 @@ export default function Vehicles() {
       header: 'Action',
       render: (row) => (
         <button
-          onClick={() => alert(`Vehicle RC & Dual-Brake Fitness Dossier:\nNo: ${row.vehicleNo}\nModel: ${row.model}\nTrainer: ${row.assignedInstructor}\nInsurance: ${row.insuranceExpiry}`)}
+          onClick={() => setSelectedVehicleForDetails(row)}
           className="btn-inspect-vehicle"
           title="Inspect Vehicle RC & Certificates"
         >
@@ -312,6 +314,14 @@ export default function Vehicles() {
             ))}
           </div>
         </div>
+      )}
+
+      {/* 4. Vehicle Details Dossier Modal */}
+      {selectedVehicleForDetails && (
+        <VehicleDetailModal
+          vehicle={selectedVehicleForDetails}
+          onClose={() => setSelectedVehicleForDetails(null)}
+        />
       )}
     </div>
   );

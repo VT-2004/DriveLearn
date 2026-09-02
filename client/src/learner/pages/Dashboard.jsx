@@ -9,7 +9,7 @@ import StatusPill from '../../admin/components/StatusPill';
 import ProgressStepper from '../components/ProgressStepper';
 import AttendanceCalendar from '../components/AttendanceCalendar';
 import SafetyShieldCard from '../components/SafetyShieldCard';
-import { INITIAL_WEATHER_ALERT } from '../../shared/data/weatherAlertState';
+import { getWeatherAlert, setWeatherAlert } from '../../shared/data/weatherAlertState';
 import {
   learnerProfileData,
   learnerCourseSummary,
@@ -23,7 +23,15 @@ import './Dashboard.css';
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const [weatherAlert, setWeatherAlert] = useState(INITIAL_WEATHER_ALERT);
+  const [weatherAlert, setWeatherAlertState] = useState(getWeatherAlert);
+
+  useEffect(() => {
+    const handleWeatherUpdate = () => {
+      setWeatherAlertState(getWeatherAlert());
+    };
+    window.addEventListener('drivelearn_weather_change', handleWeatherUpdate);
+    return () => window.removeEventListener('drivelearn_weather_change', handleWeatherUpdate);
+  }, []);
 
   return (
     <div className="learner-dashboard-page">
