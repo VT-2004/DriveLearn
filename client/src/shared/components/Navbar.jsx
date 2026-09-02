@@ -79,6 +79,29 @@ export default function Navbar() {
                   <span style={{ fontSize: '0.72rem', color: 'var(--primary)', fontWeight: '700' }}>{user.role}</span>
                 </div>
 
+                {/* Direct Portal Link */}
+                <Link
+                  to={
+                    user.role === 'LEARNER' ? '/learner/dashboard' :
+                    user.role === 'INSTRUCTOR' ? '/instructor/dashboard' :
+                    user.role === 'OWNER' ? '/owner/dashboard' : '/admin/dashboard'
+                  }
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    padding: '0.35rem 0.75rem',
+                    borderRadius: '6px',
+                    backgroundColor: 'var(--primary, #B91C1C)',
+                    color: '#ffffff',
+                    fontSize: '0.82rem',
+                    fontWeight: '800',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <span>Dashboard &rarr;</span>
+                </Link>
+
                 {/* Logout Button */}
                 <button onClick={handleLogout} className="btn-nav-logout" title="Sign Out" style={{
                   background: '#f1f5f9',

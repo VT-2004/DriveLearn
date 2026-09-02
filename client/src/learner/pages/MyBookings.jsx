@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Calendar, Clock, RefreshCw, XCircle, AlertCircle, Plus, X, AlertTriangle, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Calendar, Clock, RefreshCw, XCircle, AlertCircle, Plus, X, AlertTriangle, MapPin, Compass } from 'lucide-react';
 import DataTable from '../../admin/components/DataTable';
 import StatusPill from '../../admin/components/StatusPill';
+import BookLessonModal from '../components/BookLessonModal';
 import { learnerBookingsList } from '../data/dummyData';
 import { VERIFIED_PICKUP_LANDMARKS } from '../../shared/data/pickupLandmarks';
 import './MyBookings.css';
@@ -18,18 +20,23 @@ export default function MyBookings() {
   const [newPickupLandmark, setNewPickupLandmark] = useState('Garware College Metro Gate 2 (Pillar No. 42)');
   const [slotConflictError, setSlotConflictError] = useState(null);
 
+  // New Lesson Booking Modal State
+  const [showBookModal, setShowBookModal] = useState(false);
+
   const filteredBookings = bookings.filter((b) => {
+    const matchesTab = statusTab === 'ALL' || (statusTab === 'upcoming' ? b.status === 'confirmed' : b.status === statusTab);
     const matchesSearch =
       b.school.toLowerCase().includes(searchTerm.toLowerCase()) ||
       b.instructor.toLowerCase().includes(searchTerm.toLowerCase()) ||
       b.location.toLowerCase().includes(searchTerm.toLowerCase());
-
-    if (statusTab === 'ALL') return matchesSearch;
-    if (statusTab === 'upcoming') return matchesSearch && b.status === 'confirmed';
-    if (statusTab === 'completed') return matchesSearch && b.status === 'completed';
-    if (statusTab === 'cancelled') return matchesSearch && b.status === 'cancelled';
-    return matchesSearch;
+    return matchesTab && matchesSearch;
   });
+
+  const handleBookSlot = (newLesson) => {
+    setBookings((prev) => [newLesson, ...prev]);
+    setShowBookModal(false);
+    alert(`Success! Your practical session has been confirmed for ${newLesson.date} (${newLesson.time}) at ${newLesson.location}!`);
+  };
 
   const handleRescheduleSubmit = (e) => {
     e.preventDefault();
@@ -187,13 +194,35 @@ export default function MyBookings() {
           </button>
         </div>
 
-        <button
-          onClick={() => alert('Opening slot picker for Session 9 (Simulated RTO 8-Track Test)...')}
-          className="btn-toolbar-primary"
-        >
-          <Plus size={14} />
-          <span>Book Next Lesson</span>
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          <Link
+            to="/find-school"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '8px 14px',
+              borderRadius: '8px',
+              border: '1px solid #cbd5e1',
+              backgroundColor: '#ffffff',
+              color: '#334155',
+              fontSize: '12px',
+              fontWeight: 700,
+              textDecoration: 'none'
+            }}
+          >
+            <Compass size={14} color="var(--color-primary, #B91C1C)" />
+            <span>Explore Other Schools & Courses</span>
+          </Link>
+
+          <button
+            onClick={() => setShowBookModal(true)}
+            className="btn-toolbar-primary"
+          >
+            <Plus size={14} />
+            <span>Book Next Lesson</span>
+          </button>
+        </div>
       </div>
 
       {/* 3. Bookings Data Table */}
@@ -310,6 +339,14 @@ export default function MyBookings() {
             </form>
           </div>
         </div>
+      )}
+
+      {/* 5. Book Lesson Modal */}
+      {showBookModal && (
+        <BookLessonModal
+          onClose={() => setShowBookModal(false)}
+          onBookSlot={handleBookSlot}
+        />
       )}
     </div>
   );

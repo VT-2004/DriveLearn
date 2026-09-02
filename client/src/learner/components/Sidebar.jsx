@@ -1,7 +1,7 @@
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, Calendar, TrendingUp, Wallet, 
-  Award, User, ArrowLeft, LogOut, X, Compass, MessageSquare, BookOpenCheck 
+  Award, User, ArrowLeft, LogOut, X, Compass, MessageSquare, BookOpenCheck, Search 
 } from 'lucide-react';
 import { useAuth } from '../../shared/context/AuthContext';
 import './Sidebar.css';
@@ -9,6 +9,7 @@ import './Sidebar.css';
 const NAV_LINKS = [
   { label: 'Dashboard', path: '/learner/dashboard', icon: LayoutDashboard },
   { label: 'My Bookings', path: '/learner/bookings', icon: Calendar },
+  { label: 'Find Driving Schools', path: '/find-school', icon: Search },
   { label: 'Progress', path: '/learner/progress', icon: TrendingUp },
   { label: 'RTO Exam Prep', path: '/learner/rto-mock-test', icon: BookOpenCheck },
   { label: 'Wallet', path: '/learner/wallet', icon: Wallet },

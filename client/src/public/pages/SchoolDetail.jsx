@@ -362,9 +362,27 @@ export default function SchoolDetail() {
                                 <p>
                                     <strong>{school.name}</strong> has received your request and will call/WhatsApp you within 2 hours to confirm your vehicle pickup point and start date.
                                 </p>
-                                <button onClick={() => setBookingSuccess(false)} className="btn-book-another">
-                                    Book Another Slot
-                                </button>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', marginTop: '12px' }}>
+                                    <Link 
+                                        to="/learner/bookings" 
+                                        style={{
+                                            display: 'block',
+                                            textAlign: 'center',
+                                            backgroundColor: 'var(--color-primary, #B91C1C)',
+                                            color: '#ffffff',
+                                            padding: '10px 16px',
+                                            borderRadius: '8px',
+                                            fontWeight: '800',
+                                            fontSize: '13px',
+                                            textDecoration: 'none'
+                                        }}
+                                    >
+                                        Go to My Bookings in Learner Hub &rarr;
+                                    </Link>
+                                    <button onClick={() => setBookingSuccess(false)} className="btn-book-another">
+                                        Reserve Another Package
+                                    </button>
+                                </div>
                             </div>
                         ) : (
                             <form onSubmit={handleBooking} className="booking-form">
