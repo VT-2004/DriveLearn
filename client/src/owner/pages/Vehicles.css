@@ -83,3 +83,186 @@
   gap: 8px;
   flex-wrap: wrap;
 }
+
+/* Fuel & Odometer Audit Ledger */
+.fuel-audit-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.audit-header-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 14px 20px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.audit-summary-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.audit-summary-stat .lbl {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.audit-summary-stat .val {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.text-amber {
+  color: #c2410c !important;
+}
+
+.fuel-audit-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fuel-log-card {
+  background-color: #ffffff;
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.fuel-log-card.verified {
+  border-left: 4px solid #15803D;
+}
+
+.fuel-log-card.flagged {
+  border-left: 4px solid #ea580c;
+  background-color: #fffaf5;
+}
+
+.log-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.log-vehicle-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.log-model {
+  color: #475569;
+}
+
+.log-trainer {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.log-status-pill {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.log-status-pill.verified {
+  background-color: #f0fdf4;
+  color: #15803D;
+  border: 1px solid #bbf7d0;
+}
+
+.log-status-pill.flagged {
+  background-color: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+}
+
+.log-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  background-color: #fafbfc;
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.metric-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.m-lbl {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.m-val {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.log-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.log-note {
+  font-size: 12px;
+  color: #475569;
+}
+
+.btn-approve-voucher {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #bbf7d0;
+  background-color: #f0fdf4;
+  color: #15803D;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-approve-voucher:hover {
+  background-color: #dcfce7;
+}
+
+@media (max-width: 900px) {
+  .log-metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .log-metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

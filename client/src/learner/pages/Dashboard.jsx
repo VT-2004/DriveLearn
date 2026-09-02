@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   BookOpen, Calendar, CheckCircle2, TrendingUp, Clock,
-  MapPin, User, Bike, ArrowRight, Sparkles, AlertCircle, ChevronRight, Award
+  MapPin, User, Bike, ArrowRight, Sparkles, AlertCircle, ChevronRight, Award, CloudRain
 } from 'lucide-react';
 import StatCard from '../../admin/components/StatCard';
 import StatusPill from '../../admin/components/StatusPill';
 import ProgressStepper from '../components/ProgressStepper';
 import AttendanceCalendar from '../components/AttendanceCalendar';
+import SafetyShieldCard from '../components/SafetyShieldCard';
+import { INITIAL_WEATHER_ALERT } from '../../shared/data/weatherAlertState';
 import {
   learnerProfileData,
   learnerCourseSummary,
@@ -21,6 +23,7 @@ import './Dashboard.css';
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const [weatherAlert, setWeatherAlert] = useState(INITIAL_WEATHER_ALERT);
 
   return (
     <div className="learner-dashboard-page">
@@ -37,6 +40,40 @@ export default function Dashboard() {
           <span>Book Next Slot</span>
         </Link>
       </div>
+
+      {/* Real-World Operational Weather Shield Banner */}
+      {weatherAlert.isActive && (
+        <div className="monsoon-weather-banner">
+          <div className="weather-banner-left">
+            <div className="weather-icon-bubble">
+              <CloudRain size={20} color="#ffffff" />
+            </div>
+            <div>
+              <div className="weather-title-row">
+                <strong>{weatherAlert.title}</strong>
+                <span className="weather-advisory-tag">PUNE RTO ADVISORY</span>
+              </div>
+              <p>{weatherAlert.message}</p>
+            </div>
+          </div>
+
+          <div className="weather-banner-actions">
+            <button
+              type="button"
+              className="btn-accept-delay"
+              onClick={() => {
+                alert('Delay accepted! Your slot has been shifted to 04:45 PM today. Instructor Sunita Deshmukh has been notified.');
+                setWeatherAlert((prev) => ({ ...prev, isActive: false }));
+              }}
+            >
+              Accept +45 Min Delay
+            </button>
+            <Link to="/learner/bookings" className="btn-weather-reschedule">
+              Free 1-Click Reschedule
+            </Link>
+          </div>
+        </div>
+      )}
 
       {/* Sub-section A: 4 Stat Cards */}
       <div className="admin-stats-four-grid">
@@ -141,7 +178,14 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* Sub-section D & E: Attendance Calendar & Recent Instructor Feedback Two-Column Split */}
+      {/* Sub-section D: Women Learner Safety Shield & SOS Verification */}
+      <SafetyShieldCard
+        learnerName={learnerProfileData.name}
+        instructorName={learnerCourseSummary.instructor}
+        vehicleNo="MH-12-CD-8812 (Honda Activa 6G)"
+      />
+
+      {/* Sub-section E & F: Attendance Calendar & Recent Instructor Feedback Two-Column Split */}
       <div className="dashboard-charts-split-grid" id="attendance-calendar-section">
         {/* Sub-section D: Monthly Attendance Calendar */}
         <AttendanceCalendar

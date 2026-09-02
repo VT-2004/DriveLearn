@@ -1,0 +1,146 @@
+.safety-shield-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 1.5px solid #bbf7d0;
+  border-left: 4px solid #15803D;
+  border-radius: var(--admin-radius-lg, 12px);
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.safety-shield-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dcfce7;
+  padding-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.safety-title-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.safety-shield-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #15803D 0%, #166534 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(21, 128, 61, 0.2);
+}
+
+.safety-title-left h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: #14532d;
+  margin: 0;
+}
+
+.safety-sub {
+  font-size: 11px;
+  color: #166534;
+  display: block;
+  margin-top: 2px;
+}
+
+.sos-pill {
+  font-size: 10px;
+  font-weight: 800;
+  color: #15803D;
+  background-color: #ffffff;
+  border: 1px solid #86efac;
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+.safety-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.safety-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--admin-radius-md, 8px);
+  padding: 10px 12px;
+}
+
+.safety-item strong {
+  font-size: 12px;
+  color: #0f172a;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.safety-item p {
+  font-size: 11px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.safety-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 4px;
+  flex-wrap: wrap;
+}
+
+.btn-share-session {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #86efac;
+  background-color: #ffffff;
+  color: #15803D;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-share-session:hover {
+  background-color: #dcfce7;
+}
+
+.btn-emergency-dispatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #15803D;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.btn-emergency-dispatch:hover {
+  background-color: #166534;
+}
+
+@media (max-width: 800px) {
+  .safety-features-grid {
+    grid-template-columns: 1fr;
+  }
+}

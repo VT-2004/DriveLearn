@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { Clock, Calendar, MapPin, Play, CheckCircle } from 'lucide-react';
+import { Clock, Calendar, MapPin, Play, CheckCircle, Fuel } from 'lucide-react';
 import LessonRow from '../components/LessonRow';
 import StartLessonModal from '../components/StartLessonModal';
+import FuelOdometerModal from '../components/FuelOdometerModal';
 import { instructorTodaysLessons } from '../data/dummyData';
 import './TodaysSchedule.css';
 
 export default function TodaysSchedule() {
   const [lessons, setLessons] = useState(instructorTodaysLessons);
   const [activeLessonModal, setActiveLessonModal] = useState(null);
+  const [showFuelModal, setShowFuelModal] = useState(false);
 
   const handleStartLesson = (lesson) => {
     setActiveLessonModal(lesson);
@@ -35,6 +37,26 @@ export default function TodaysSchedule() {
             Saturday, 22 August 2026 • 5 Practical Batches Assigned at Warje & Karve Road
           </p>
         </div>
+
+        <button
+          onClick={() => setShowFuelModal(true)}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '8px 14px',
+            borderRadius: '8px',
+            border: '1px solid #fed7aa',
+            backgroundColor: '#fffaf5',
+            color: '#c2410c',
+            fontSize: '12px',
+            fontWeight: 800,
+            cursor: 'pointer'
+          }}
+        >
+          <Fuel size={14} />
+          <span>Log Daily Fuel & Odometer</span>
+        </button>
       </div>
 
       {/* 2. Full Timeline Stack */}
@@ -54,6 +76,14 @@ export default function TodaysSchedule() {
           lesson={activeLessonModal}
           onClose={() => setActiveLessonModal(null)}
           onCompleteLesson={handleCompleteLesson}
+        />
+      )}
+
+      {/* 4. Fuel & Odometer Modal */}
+      {showFuelModal && (
+        <FuelOdometerModal
+          onClose={() => setShowFuelModal(false)}
+          onSave={() => setShowFuelModal(false)}
         />
       )}
     </div>

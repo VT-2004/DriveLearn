@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Calendar, Clock, MapPin, CheckCircle, RefreshCw, XCircle, AlertCircle, Plus, X, AlertTriangle } from 'lucide-react';
+import { Calendar, Clock, RefreshCw, XCircle, AlertCircle, Plus, X, AlertTriangle, MapPin } from 'lucide-react';
 import DataTable from '../../admin/components/DataTable';
 import StatusPill from '../../admin/components/StatusPill';
 import { learnerBookingsList } from '../data/dummyData';
+import { VERIFIED_PICKUP_LANDMARKS } from '../../shared/data/pickupLandmarks';
 import './MyBookings.css';
 
 export default function MyBookings() {
@@ -13,7 +14,8 @@ export default function MyBookings() {
   // Reschedule Modal State
   const [rescheduleBooking, setRescheduleBooking] = useState(null);
   const [newDate, setNewDate] = useState('2026-08-25');
-  const [newTime, setNewTime] = useState('08:00 AM - 08:45 AM');
+  const [newTime, setNewTime] = useState('09:00 AM - 09:45 AM');
+  const [newPickupLandmark, setNewPickupLandmark] = useState('Garware College Metro Gate 2 (Pillar No. 42)');
   const [slotConflictError, setSlotConflictError] = useState(null);
 
   const filteredBookings = bookings.filter((b) => {
@@ -44,11 +46,11 @@ export default function MyBookings() {
     setBookings((prev) =>
       prev.map((b) =>
         b.id === rescheduleBooking.id
-          ? { ...b, date: newDate, time: newTime }
+          ? { ...b, date: newDate, time: newTime, pickupLandmark: newPickupLandmark }
           : b
       )
     );
-    alert(`Practical lesson ${rescheduleBooking.id} rescheduled successfully to ${newDate} (${newTime})!`);
+    alert(`Practical lesson ${rescheduleBooking.id} rescheduled successfully to ${newDate} (${newTime}) with pickup at ${newPickupLandmark}!`);
     setRescheduleBooking(null);
   };
 
@@ -71,11 +73,27 @@ export default function MyBookings() {
       ),
     },
     {
-      header: 'Training Ground & Track',
+      header: 'Training Ground & Transit Pickup',
       render: (row) => (
         <div className="bkg-location-cell">
           <strong>{row.location}</strong>
           <span className="bkg-school-sub">{row.school}</span>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '4px',
+            marginTop: '4px',
+            fontSize: '11px',
+            color: '#15803D',
+            backgroundColor: '#f0fdf4',
+            padding: '2px 7px',
+            borderRadius: '4px',
+            border: '1px solid #bbf7d0',
+            width: 'fit-content'
+          }}>
+            <MapPin size={11} />
+            <span>Pickup: <strong>{row.pickupLandmark || 'Garware Metro Pillar 42'}</strong></span>
+          </div>
         </div>
       ),
     },
@@ -252,6 +270,23 @@ export default function MyBookings() {
                   <option value="09:00 AM - 09:45 AM">09:00 AM - 09:45 AM (Morning Batch)</option>
                   <option value="04:00 PM - 04:45 PM">04:00 PM - 04:45 PM (Evening Batch)</option>
                   <option value="05:00 PM - 05:45 PM">05:00 PM - 05:45 PM (Evening Batch)</option>
+                </select>
+              </div>
+
+              <div className="form-group">
+                <label>
+                  <MapPin size={13} style={{ display: 'inline', marginRight: '4px', color: '#15803D' }} />
+                  <span>Designated Transit Pickup Landmark</span>
+                </label>
+                <select 
+                  value={newPickupLandmark} 
+                  onChange={(e) => setNewPickupLandmark(e.target.value)}
+                >
+                  {VERIFIED_PICKUP_LANDMARKS.map((lm) => (
+                    <option key={lm.id} value={`${lm.name} (${lm.metroPillar})`}>
+                      {lm.name} • {lm.metroPillar}
+                    </option>
+                  ))}
                 </select>
               </div>
 

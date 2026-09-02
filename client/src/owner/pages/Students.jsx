@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Search, Plus, Download, Eye, User, Phone, BookOpen, CheckCircle } from 'lucide-react';
+import { Search, Plus, Download, Eye, User, Phone, BookOpen, CheckCircle, FileCheck } from 'lucide-react';
 import DataTable from '../../admin/components/DataTable';
 import StatusPill from '../../admin/components/StatusPill';
 import SkeletonLoader from '../../admin/components/SkeletonLoader';
 import EmptyState from '../../admin/components/EmptyState';
+import Form5AModal from '../components/Form5AModal';
 import { ownerStudentsList } from '../data/dummyData';
 import './Students.css';
 
@@ -13,6 +14,7 @@ export default function Students() {
   const [statusFilter, setStatusFilter] = useState('ALL');
   const [sortBy, setSortBy] = useState({ field: 'progress', direction: 'desc' });
   const [loading, setLoading] = useState(true);
+  const [showForm5AModal, setShowForm5AModal] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 200);
@@ -154,11 +156,31 @@ export default function Students() {
       {/* 1. View Header */}
       <div className="admin-view-header">
         <div>
-          <h1>Student Enrollment Roster</h1>
+          <h1>Student Enrollment Roster & RTO Gazette</h1>
           <p>
-            Track student batch progress, dual-control trainer assignments, and RTO test readiness.
+            Track student batch progress, dual-control trainer assignments, and export official Parivahan Form 5A training inspection registers.
           </p>
         </div>
+
+        <button
+          onClick={() => setShowForm5AModal(true)}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            backgroundColor: '#f0fdf4',
+            border: '1.5px solid #86efac',
+            borderRadius: '8px',
+            padding: '8px 16px',
+            color: '#15803D',
+            fontSize: '12px',
+            fontWeight: 800,
+            cursor: 'pointer'
+          }}
+        >
+          <FileCheck size={14} />
+          <span>Parivahan Form 5A RTO Register</span>
+        </button>
       </div>
 
       {/* 2. Data Table */}
@@ -185,6 +207,11 @@ export default function Students() {
           sortBy={sortBy}
           onSort={handleSort}
         />
+      )}
+
+      {/* 3. Form 5A Modal */}
+      {showForm5AModal && (
+        <Form5AModal onClose={() => setShowForm5AModal(false)} />
       )}
     </div>
   );
