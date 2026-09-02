@@ -196,7 +196,7 @@ export default function MyBookings() {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <Link
-            to="/find-school"
+            to="/learner/courses"
             style={{
               display: 'inline-flex',
               alignItems: 'center',

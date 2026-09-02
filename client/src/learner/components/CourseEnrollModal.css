@@ -1,0 +1,193 @@
+.course-enroll-dialog {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1px solid var(--admin-border, #e2e8f0);
+  border-radius: var(--admin-radius-lg, 12px);
+  box-shadow: var(--admin-shadow-lg, 0 10px 25px -5px rgba(0, 0, 0, 0.15));
+  max-width: 620px;
+  width: 92%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.course-enroll-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.enroll-cat-pill {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-primary, #B91C1C);
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.course-enroll-header h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.enroll-school-sub {
+  font-size: 11px;
+  color: #64748b;
+  display: block;
+  margin-top: 3px;
+}
+
+.course-enroll-form {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trainee-dossier-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background-color: #fafbfc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.td-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.td-lbl {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.td-cell strong {
+  font-size: 12px;
+  color: #0f172a;
+}
+
+.td-sub {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.enroll-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 12px;
+  background-color: #ffffff;
+}
+
+.fee-breakdown-card {
+  background-color: #fffaf5;
+  border: 1.5px solid #fed7aa;
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fee-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #475569;
+}
+
+.wallet-row {
+  padding-top: 4px;
+  border-top: 1px dashed #fed7aa;
+}
+
+.fee-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1.5px solid #fed7aa;
+}
+
+.fee-total-row strong {
+  font-size: 13px;
+  color: #0f172a;
+  display: block;
+}
+
+.fee-pay-note {
+  font-size: 10px;
+  color: #15803D;
+  font-weight: 700;
+  display: block;
+}
+
+.net-price-val {
+  font-size: 20px;
+  font-weight: 900;
+  color: #c2410c;
+}
+
+.enroll-guarantee-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #15803D;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.enroll-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.btn-confirm-enroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-confirm-enroll:hover {
+  background-color: #991b1b;
+}
+
+@media (max-width: 600px) {
+  .trainee-dossier-box {
+    grid-template-columns: 1fr;
+  }
+}

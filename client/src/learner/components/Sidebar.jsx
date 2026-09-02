@@ -8,8 +8,8 @@ import './Sidebar.css';
 
 const NAV_LINKS = [
   { label: 'Dashboard', path: '/learner/dashboard', icon: LayoutDashboard },
+  { label: 'Courses & Schools', path: '/learner/courses', icon: Compass },
   { label: 'My Bookings', path: '/learner/bookings', icon: Calendar },
-  { label: 'Find Driving Schools', path: '/find-school', icon: Search },
   { label: 'Progress', path: '/learner/progress', icon: TrendingUp },
   { label: 'RTO Exam Prep', path: '/learner/rto-mock-test', icon: BookOpenCheck },
   { label: 'Wallet', path: '/learner/wallet', icon: Wallet },
