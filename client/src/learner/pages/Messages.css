@@ -1,7 +1,9 @@
 .learner-messages-page {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
+  min-width: 0;
+  width: 100%;
 }
 
 .security-notice-chip {
@@ -10,35 +12,35 @@
   gap: 6px;
   background-color: #f0fdf4;
   border: 1px solid #bbf7d0;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: #15803D;
 }
 
 .track-location-banner {
   background-color: #fffaf0;
-  border: 1.5px solid #fed7aa;
+  border: 1px solid #fed7aa;
   border-left: 4px solid #ea580c;
-  border-radius: var(--admin-radius-lg, 12px);
-  padding: 14px 20px;
+  border-radius: var(--admin-radius-md, 10px);
+  padding: 10px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .loc-banner-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .loc-icon-bubble {
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--admin-radius-md, 8px);
   background-color: #ffedd5;
   display: flex;
@@ -48,16 +50,16 @@
 }
 
 .loc-banner-left strong {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   color: #9a3412;
   display: block;
 }
 
 .loc-banner-left p {
-  font-size: 12px;
+  font-size: 11px;
   color: #c2410c;
-  margin: 2px 0 0 0;
+  margin: 1px 0 0 0;
 }
 
 .loc-batch-time {
@@ -66,9 +68,9 @@
   gap: 5px;
   background-color: #ffffff;
   border: 1px solid #fed7aa;
-  padding: 4px 12px;
+  padding: 4px 10px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: #9a3412;
 }
