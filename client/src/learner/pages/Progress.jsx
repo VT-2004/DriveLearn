@@ -169,6 +169,86 @@ export default function Progress() {
         </div>
       </div>
 
+      {/* Sub-section E: Verified RTO Practical Driving Competency Scorecard */}
+      <div className="rto-scorecard-panel">
+        <div className="scorecard-top-head">
+          <div className="scorecard-title-group">
+            <div className="scorecard-icon-seal">
+              <Award size={22} color="#ffffff" />
+            </div>
+            <div>
+              <div className="scorecard-badge-row">
+                <h3>Official RTO Practical Driving Competency Scorecard</h3>
+                <span className="verified-badge-pill">
+                  <ShieldCheck size={12} />
+                  <span>TRAINER CERTIFIED (FORM 5A AUDIT)</span>
+                </span>
+              </div>
+              <p>
+                Practical on-track evaluation conducted at Warje RTO Ground & Karve Road by Senior Instructor Sunita Deshmukh (Lic: MH-12-INS-2019-332).
+              </p>
+            </div>
+          </div>
+          <span className="eval-date-tag tabular-nums">Evaluated: 21 Aug 2026</span>
+        </div>
+
+        <div className="scorecard-rubric-grid">
+          {/* Item 1: Clutch */}
+          <div className="scorecard-item-box">
+            <span className="item-lbl">Clutch Biting on 20° Incline</span>
+            <div className="stars-mini-row">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <Star key={s} size={15} fill={s <= 4 ? '#f59e0b' : 'none'} color="#f59e0b" />
+              ))}
+              <strong className="score-val tabular-nums">4 / 5 Stars</strong>
+            </div>
+            <span className="item-sub">Holds gradient smoothly without roll</span>
+          </div>
+
+          {/* Item 2: 8-Track */}
+          <div className="scorecard-item-box">
+            <span className="item-lbl">Warje RTO 8-Track & S-Curves</span>
+            <div className="status-badge-inline pass">
+              <CheckCircle2 size={14} color="#15803D" />
+              <strong>Cleared Flawlessly</strong>
+            </div>
+            <span className="item-sub">0 boundary cone penalties</span>
+          </div>
+
+          {/* Item 3: Mirrors */}
+          <div className="scorecard-item-box">
+            <span className="item-lbl">Mirror & Blind-Spot Observance</span>
+            <div className="status-badge-inline pass">
+              <CheckCircle2 size={14} color="#15803D" />
+              <strong>Consistent & Prompt</strong>
+            </div>
+            <span className="item-sub">Both side mirrors checked before turn</span>
+          </div>
+
+          {/* Item 4: Emergency Brake */}
+          <div className="scorecard-item-box">
+            <span className="item-lbl">Emergency Stop & Downshifting</span>
+            <div className="status-badge-inline pass">
+              <CheckCircle2 size={14} color="#15803D" />
+              <strong>Mastered (Pass)</strong>
+            </div>
+            <span className="item-sub">Zero skid progressive braking</span>
+          </div>
+        </div>
+
+        <div className="scorecard-bottom-bar">
+          <div className="instructor-sign-box">
+            <div className="sign-stamp">VERIFIED BY SAI MOTOR ACADEMY</div>
+            <span className="sign-details">
+              Instructor: <strong>Sunita Deshmukh</strong> • Authorized Evaluator (MH-12-INS-2019-332)
+            </span>
+          </div>
+          <span className="rto-ready-tag">
+            🎯 <strong>RTO Track Ready:</strong> 85% Confidence Index for Pune Alandi Road Permanent DL Trial
+          </span>
+        </div>
+      </div>
+
       {/* Leave Review Modal */}
       {showReviewModal && (
         <LeaveReviewModal

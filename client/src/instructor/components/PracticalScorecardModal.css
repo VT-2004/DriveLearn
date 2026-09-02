@@ -1,0 +1,225 @@
+.scorecard-modal-dialog {
+  background-color: var(--admin-surface, #ffffff);
+  border: 1px solid var(--admin-border, #e2e8f0);
+  border-radius: var(--admin-radius-lg, 12px);
+  box-shadow: var(--admin-shadow-lg, 0 10px 25px -5px rgba(0, 0, 0, 0.1));
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.scorecard-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #fafafa;
+  flex-shrink: 0;
+}
+
+.scorecard-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scorecard-header-left h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.scorecard-sub {
+  font-size: 12px;
+  color: #64748b;
+  display: block;
+  margin-top: 2px;
+}
+
+.scorecard-form-scroll {
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #fafbfc;
+}
+
+.rubric-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--admin-radius-md, 8px);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rubric-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.rubric-step-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rubric-header strong {
+  font-size: 13px;
+  color: #0f172a;
+  display: block;
+}
+
+.rubric-header p {
+  font-size: 11px;
+  color: #64748b;
+  margin: 2px 0 0 0;
+  line-height: 1.35;
+}
+
+/* Star Rating */
+.stars-rating-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 8px 14px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
+}
+
+.star-btn:hover {
+  transform: scale(1.15);
+}
+
+.star-rating-lbl {
+  font-size: 12px;
+  font-weight: 800;
+  color: #b45309;
+  margin-left: 6px;
+}
+
+/* Rubric Options */
+.rubric-options-grid {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rubric-pill-btn {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.rubric-pill-btn:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.rubric-pill-btn.selected {
+  background-color: #fef2f2;
+  border-color: var(--color-primary, #B91C1C);
+  color: var(--color-primary, #B91C1C);
+  box-shadow: 0 1px 2px rgba(185, 28, 28, 0.15);
+}
+
+.scorecard-textarea {
+  width: 100%;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #0f172a;
+  font-family: inherit;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.scorecard-textarea:focus {
+  border-color: var(--color-primary, #B91C1C);
+}
+
+.scorecard-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-top: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-cert-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #15803D;
+}
+
+.footer-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-submit-scorecard {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(185, 28, 28, 0.2);
+  transition: background-color 0.15s ease;
+}
+
+.btn-submit-scorecard:hover {
+  background-color: #991b1b;
+}

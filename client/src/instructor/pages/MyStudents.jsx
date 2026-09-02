@@ -4,6 +4,7 @@ import DataTable from '../../admin/components/DataTable';
 import StatusPill from '../../admin/components/StatusPill';
 import AddNoteModal from '../components/AddNoteModal';
 import StudentDetailModal from '../components/StudentDetailModal';
+import PracticalScorecardModal from '../components/PracticalScorecardModal';
 import { instructorAssignedStudents } from '../data/dummyData';
 import './MyStudents.css';
 
@@ -12,6 +13,7 @@ export default function MyStudents() {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeNoteStudent, setActiveNoteStudent] = useState(null);
   const [selectedDossierStudent, setSelectedDossierStudent] = useState(null);
+  const [evaluatingStudent, setEvaluatingStudent] = useState(null);
 
   const filteredStudents = students.filter(
     (s) =>
@@ -27,6 +29,21 @@ export default function MyStudents() {
       )
     );
     alert(`Feedback note published to student's Learner Portal!`);
+  };
+
+  const handleSaveScorecard = (studentId, scorecardData) => {
+    setStudents((prev) =>
+      prev.map((s) =>
+        s.id === studentId
+          ? {
+              ...s,
+              practicalScorecard: scorecardData,
+              latestFeedback: scorecardData.instructorRemarks,
+            }
+          : s
+      )
+    );
+    alert(`Official RTO Practical Scorecard signed and published for learner!`);
   };
 
   const columns = [
@@ -73,14 +90,22 @@ export default function MyStudents() {
     {
       header: 'Actions',
       render: (row) => (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <button
             onClick={() => setSelectedDossierStudent(row)}
             className="btn-view-dossier"
             title="View complete student training dossier"
           >
             <Eye size={13} />
-            <span>Student Info</span>
+            <span>Info</span>
+          </button>
+          <button
+            onClick={() => setEvaluatingStudent(row)}
+            className="btn-open-scorecard"
+            title="Grade RTO practical competencies (clutch, 8-track, mirrors)"
+          >
+            <Award size={13} />
+            <span>RTO Scorecard</span>
           </button>
           <button
             onClick={() => setActiveNoteStudent(row)}
@@ -102,7 +127,7 @@ export default function MyStudents() {
         <div>
           <h1>My Assigned Learners Roster</h1>
           <p>
-            Review complete student profiles, verify Parivahan Learner's Licenses (LL), track vehicle allocations, and log practical feedback.
+            Review complete student profiles, verify Parivahan Learner's Licenses (LL), grade practical RTO competencies, and log feedback.
           </p>
         </div>
       </div>
@@ -128,7 +153,16 @@ export default function MyStudents() {
         />
       )}
 
-      {/* 4. Add Note Modal */}
+      {/* 4. Practical RTO Competency Scorecard Modal */}
+      {evaluatingStudent && (
+        <PracticalScorecardModal
+          student={evaluatingStudent}
+          onClose={() => setEvaluatingStudent(null)}
+          onSaveScorecard={handleSaveScorecard}
+        />
+      )}
+
+      {/* 5. Add Note Modal */}
       {activeNoteStudent && (
         <AddNoteModal
           student={activeNoteStudent}

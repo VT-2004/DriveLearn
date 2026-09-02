@@ -100,6 +100,27 @@
   color: var(--color-primary, #B91C1C);
 }
 
+.btn-open-scorecard {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--admin-radius-sm, 4px);
+  border: 1px solid #fed7aa;
+  background-color: #fffaf5;
+  font-size: 12px;
+  font-weight: 700;
+  color: #c2410c;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-open-scorecard:hover {
+  background-color: #ffedd5;
+  border-color: #fb923c;
+  color: #9a3412;
+}
+
 .student-name-link {
   transition: color 0.15s ease;
 }

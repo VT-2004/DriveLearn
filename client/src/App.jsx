@@ -24,6 +24,7 @@ import LearnerWallet from './learner/pages/Wallet';
 import LearnerCertificates from './learner/pages/Certificates';
 import LearnerProfile from './learner/pages/Profile';
 import LearnerMessages from './learner/pages/Messages';
+import LearnerRtoMockTest from './learner/pages/RtoMockTest';
 
 // 2. Instructor Portal (Full Plan Spec)
 import InstructorLayout from './instructor/layouts/InstructorLayout';
@@ -81,12 +82,13 @@ function App() {
               <Route path="forgot-password" element={<ForgotPassword />} />
             </Route>
 
-            {/* 2. Learner Portal (Flat Sidebar + 7 Pages) */}
+            {/* 2. Learner Portal (Flat Sidebar + 8 Pages) */}
             <Route path="/learner" element={<LearnerLayout />}>
               <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<LearnerDashboard />} />
               <Route path="bookings" element={<LearnerBookings />} />
               <Route path="progress" element={<LearnerProgress />} />
+              <Route path="rto-mock-test" element={<LearnerRtoMockTest />} />
               <Route path="wallet" element={<LearnerWallet />} />
               <Route path="certificates" element={<LearnerCertificates />} />
               <Route path="messages" element={<LearnerMessages />} />
