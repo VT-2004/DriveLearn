@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Home, Users, Award, Car, BookOpen, Calendar, 
-  CreditCard, Ticket, Star, Settings, LogOut, ShieldCheck, X, ArrowUpRight 
+  CreditCard, Ticket, Star, Settings, LogOut, ShieldCheck, X, ArrowUpRight, MessageSquare 
 } from 'lucide-react';
 import { useAuth } from '../../shared/context/AuthContext';
 import './Sidebar.css';
@@ -21,6 +21,7 @@ const navGroups = [
       { label: 'Vehicles', path: '/owner/vehicles', icon: Car },
       { label: 'Courses & Packages', path: '/owner/courses', icon: BookOpen },
       { label: 'Bookings & Schedule', path: '/owner/bookings', icon: Calendar },
+      { label: 'Messages & Dispatch', path: '/owner/messages', icon: MessageSquare },
     ],
   },
   {

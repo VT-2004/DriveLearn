@@ -23,6 +23,7 @@ import LearnerProgress from './learner/pages/Progress';
 import LearnerWallet from './learner/pages/Wallet';
 import LearnerCertificates from './learner/pages/Certificates';
 import LearnerProfile from './learner/pages/Profile';
+import LearnerMessages from './learner/pages/Messages';
 
 // 2. Instructor Portal (Full Plan Spec)
 import InstructorLayout from './instructor/layouts/InstructorLayout';
@@ -31,6 +32,7 @@ import InstructorStudents from './instructor/pages/MyStudents';
 import InstructorSchedule from './instructor/pages/TodaysSchedule';
 import InstructorAvailability from './instructor/pages/Availability';
 import InstructorProfile from './instructor/pages/Profile';
+import InstructorMessages from './instructor/pages/Messages';
 
 // 3. Super Admin Portal (Full Plan v3 Spec)
 import AdminLayout from './admin/layouts/AdminLayout';
@@ -44,6 +46,7 @@ import Payments from './admin/pages/Payments';
 import Support from './admin/pages/Support';
 import AuditLog from './admin/pages/AuditLog';
 import Settings from './admin/pages/Settings';
+import AdminMessages from './admin/pages/Messages';
 
 // 4. School Owner Portal (Full Plan Spec)
 import OwnerLayout from './owner/layouts/OwnerLayout';
@@ -57,6 +60,7 @@ import OwnerPayments from './owner/pages/Payments';
 import OwnerSubscription from './owner/pages/Subscription';
 import OwnerReviews from './owner/pages/Reviews';
 import OwnerSettings from './owner/pages/Settings';
+import OwnerMessages from './owner/pages/Messages';
 
 function App() {
   return (
@@ -77,7 +81,7 @@ function App() {
               <Route path="forgot-password" element={<ForgotPassword />} />
             </Route>
 
-            {/* 2. Learner Portal (Flat Sidebar + 6 Pages) */}
+            {/* 2. Learner Portal (Flat Sidebar + 7 Pages) */}
             <Route path="/learner" element={<LearnerLayout />}>
               <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<LearnerDashboard />} />
@@ -85,16 +89,18 @@ function App() {
               <Route path="progress" element={<LearnerProgress />} />
               <Route path="wallet" element={<LearnerWallet />} />
               <Route path="certificates" element={<LearnerCertificates />} />
+              <Route path="messages" element={<LearnerMessages />} />
               <Route path="profile" element={<LearnerProfile />} />
             </Route>
 
-            {/* 3. Instructor Portal (Mobile-First + 5 Pages) */}
+            {/* 3. Instructor Portal (Mobile-First + 6 Pages) */}
             <Route path="/instructor" element={<InstructorLayout />}>
               <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<InstructorDashboard />} />
               <Route path="students" element={<InstructorStudents />} />
               <Route path="schedule" element={<InstructorSchedule />} />
               <Route path="availability" element={<InstructorAvailability />} />
+              <Route path="messages" element={<InstructorMessages />} />
               <Route path="profile" element={<InstructorProfile />} />
             </Route>
 
@@ -108,12 +114,13 @@ function App() {
               <Route path="offers" element={<OffersAndWallet />} />
               <Route path="subscriptions" element={<Subscriptions />} />
               <Route path="payments" element={<Payments />} />
+              <Route path="messages" element={<AdminMessages />} />
               <Route path="support" element={<Support />} />
               <Route path="audit-log" element={<AuditLog />} />
               <Route path="settings" element={<Settings />} />
             </Route>
 
-            {/* 5. School Owner Portal (Full 10-Page Operational Hub) */}
+            {/* 5. School Owner Portal (Full 11-Page Operational Hub) */}
             <Route path="/owner" element={<OwnerLayout />}>
               <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<OwnerDashboard />} />
@@ -122,6 +129,7 @@ function App() {
               <Route path="vehicles" element={<OwnerVehicles />} />
               <Route path="courses" element={<OwnerCourses />} />
               <Route path="bookings" element={<OwnerBookings />} />
+              <Route path="messages" element={<OwnerMessages />} />
               <Route path="payments" element={<OwnerPayments />} />
               <Route path="subscription" element={<OwnerSubscription />} />
               <Route path="reviews" element={<OwnerReviews />} />

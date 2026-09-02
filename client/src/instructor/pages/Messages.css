@@ -1,0 +1,41 @@
+.instructor-messages-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.messages-channel-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--admin-surface, #ffffff);
+  border: 1.5px solid var(--admin-border, #e5e5e5);
+  padding: 5px;
+  border-radius: var(--admin-radius-md, 8px);
+  width: fit-content;
+}
+
+.channel-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--admin-radius-sm, 6px);
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--admin-text-muted, #64748b);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.channel-tab-btn:hover {
+  color: var(--admin-text-main, #1a1a1a);
+}
+
+.channel-tab-btn.active {
+  background-color: var(--color-primary, #B91C1C);
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(185, 28, 28, 0.2);
+}

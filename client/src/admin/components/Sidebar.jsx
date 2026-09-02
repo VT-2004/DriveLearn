@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Home, Shield, Car, Globe, Ticket, CreditCard, 
-  PhoneCall, FileText, Settings, LogOut, ShieldCheck, X, ArrowUpRight, Wallet 
+  PhoneCall, FileText, Settings, LogOut, ShieldCheck, X, ArrowUpRight, Wallet, MessageSquare 
 } from 'lucide-react';
 import { useAuth } from '../../shared/context/AuthContext';
 import './Sidebar.css';
@@ -18,6 +18,7 @@ const navGroups = [
     items: [
       { label: 'School Verification', path: '/admin/verification', icon: Shield },
       { label: 'Driving Schools', path: '/admin/schools', icon: Car },
+      { label: 'School Communications', path: '/admin/messages', icon: MessageSquare },
       { label: 'States & Cities', path: '/admin/locations', icon: Globe },
     ],
   },

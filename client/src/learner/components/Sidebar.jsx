@@ -1,7 +1,7 @@
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, Calendar, TrendingUp, Wallet, 
-  Award, User, ArrowLeft, LogOut, X, Compass
+  Award, User, ArrowLeft, LogOut, X, Compass, MessageSquare 
 } from 'lucide-react';
 import { useAuth } from '../../shared/context/AuthContext';
 import './Sidebar.css';
@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: 'Progress', path: '/learner/progress', icon: TrendingUp },
   { label: 'Wallet', path: '/learner/wallet', icon: Wallet },
   { label: 'Certificates', path: '/learner/certificates', icon: Award },
+  { label: 'Messages', path: '/learner/messages', icon: MessageSquare, badge: '1' },
   { label: 'Profile', path: '/learner/profile', icon: User },
 ];
 
@@ -53,6 +54,7 @@ export default function Sidebar({ isOpen, onClose }) {
             >
               <Icon size={18} />
               <span>{item.label}</span>
+              {item.badge && <span className="nav-unread-badge">{item.badge}</span>}
             </NavLink>
           );
         })}
