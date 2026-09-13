@@ -102,14 +102,20 @@ async function main() {
     },
   });
 
+  // Delete legacy admin if exists to avoid unique phone collision
+  await prisma.user.deleteMany({ where: { email: 'admin@drivelearn.in' } });
+
   const adminUser = await prisma.user.upsert({
-    where: { email: 'admin@drivelearn.in' },
-    update: {},
+    where: { email: 'talawarh316@gmail.com' },
+    update: {
+      password: await hash('Vt@6360681710'),
+      role: 'ADMIN',
+    },
     create: {
-      name: 'DriveLearn Admin',
-      email: 'admin@drivelearn.in',
+      name: 'Super Admin (Talawar)',
+      email: 'talawarh316@gmail.com',
       phone: '+91 98000 00001',
-      password: await hash('superadmin123'),
+      password: await hash('Vt@6360681710'),
       role: 'ADMIN',
       city: 'Pune',
       state: 'Maharashtra',

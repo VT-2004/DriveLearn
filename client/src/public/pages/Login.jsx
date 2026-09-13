@@ -54,8 +54,8 @@ export default function Login() {
       setEmailOrPhone('sunita.trainer@saimotors.in');
       setPassword('trainer123');
     } else if (role === 'admin') {
-      setEmailOrPhone('admin@drivelearn.in');
-      setPassword('superadmin123');
+      setEmailOrPhone('talawarh316@gmail.com');
+      setPassword('Vt@6360681710');
     }
   };
 

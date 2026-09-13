@@ -4,12 +4,12 @@ const AuthContext = createContext();
 
 const DEMO_MOCK_USERS = [
   {
-    email: 'admin@drivelearn.in',
-    password: 'superadmin123',
+    email: 'talawarh316@gmail.com',
+    password: 'Vt@6360681710',
     user: {
       id: 'usr-admin-1',
-      name: 'Platform Control Admin',
-      email: 'admin@drivelearn.in',
+      name: 'Super Admin (Talawar)',
+      email: 'talawarh316@gmail.com',
       phone: '+91 98000 00001',
       role: 'ADMIN',
       city: 'Pune',
