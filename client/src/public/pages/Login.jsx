@@ -8,9 +8,8 @@ export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const [activeRole, setActiveRole] = useState('learner');
-  const [emailOrPhone, setEmailOrPhone] = useState('pooja.kulkarni@gmail.com');
-  const [password, setPassword] = useState('learner123');
+  const [emailOrPhone, setEmailOrPhone] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -22,7 +21,7 @@ export default function Login() {
     try {
       const loggedUser = await login(emailOrPhone, password);
       
-      // Dynamic Role-Based Redirection
+      // Dynamic Role-Based Redirection based on DB User Role
       if (loggedUser.role === 'LEARNER') {
         navigate('/learner/dashboard');
       } else if (loggedUser.role === 'ADMIN') {
@@ -35,27 +34,9 @@ export default function Login() {
         navigate('/');
       }
     } catch (err) {
-      setError(err.message || 'Incorrect email/password.');
+      setError(err.message || 'Incorrect email/mobile number or password.');
     } finally {
       setSubmitting(false);
-    }
-  };
-
-  const handleQuickDemoFill = (role) => {
-    setActiveRole(role);
-    setError(null);
-    if (role === 'learner') {
-      setEmailOrPhone('pooja.kulkarni@gmail.com');
-      setPassword('learner123');
-    } else if (role === 'owner') {
-      setEmailOrPhone('owner@saimotorspune.in');
-      setPassword('owner123');
-    } else if (role === 'instructor') {
-      setEmailOrPhone('sunita.trainer@saimotors.in');
-      setPassword('trainer123');
-    } else if (role === 'admin') {
-      setEmailOrPhone('talawarh316@gmail.com');
-      setPassword('Vt@6360681710');
     }
   };
 
@@ -69,39 +50,7 @@ export default function Login() {
               <Bike size={28} color="#ffffff" />
             </div>
             <h2>Sign In to DriveLearn India</h2>
-            <p>Access your training schedule, slot bookings, and wallet balance.</p>
-          </div>
-
-          {/* Role Switcher Tabs */}
-          <div className="role-switcher">
-            <button
-              type="button"
-              className={`role-tab ${activeRole === 'learner' ? 'active' : ''}`}
-              onClick={() => handleQuickDemoFill('learner')}
-            >
-              Learner / Rider
-            </button>
-            <button
-              type="button"
-              className={`role-tab ${activeRole === 'owner' ? 'active' : ''}`}
-              onClick={() => handleQuickDemoFill('owner')}
-            >
-              School Owner
-            </button>
-            <button
-              type="button"
-              className={`role-tab ${activeRole === 'instructor' ? 'active' : ''}`}
-              onClick={() => handleQuickDemoFill('instructor')}
-            >
-              Instructor
-            </button>
-            <button
-              type="button"
-              className={`role-tab ${activeRole === 'admin' ? 'active' : ''}`}
-              onClick={() => handleQuickDemoFill('admin')}
-            >
-              Super Admin
-            </button>
+            <p>Access your training schedule, slot bookings, and dashboard.</p>
           </div>
 
           {/* Error Message Box */}
@@ -131,10 +80,11 @@ export default function Login() {
                 <Mail size={18} className="input-icon" />
                 <input
                   type="text"
-                  placeholder="e.g. pooja.kulkarni@gmail.com"
+                  placeholder="e.g. yourname@gmail.com or 9823011223"
                   value={emailOrPhone}
                   onChange={(e) => setEmailOrPhone(e.target.value)}
                   required
+                  autoFocus
                 />
               </div>
             </div>
@@ -164,7 +114,7 @@ export default function Login() {
                 </>
               ) : (
                 <>
-                  <span>Sign In as {activeRole.charAt(0).toUpperCase() + activeRole.slice(1)}</span>
+                  <span>Sign In</span>
                   <ArrowRight size={18} />
                 </>
               )}
