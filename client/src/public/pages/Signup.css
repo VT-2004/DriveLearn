@@ -1,3 +1,41 @@
+.auth-page {
+  padding: 4rem 0 5rem;
+  background: radial-gradient(circle at 50% 10%, rgba(220, 38, 38, 0.05) 0%, rgba(251, 251, 251, 0) 70%);
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+}
+
+.auth-container {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.auth-card {
+  background: #ffffff;
+  border: 1.5px solid var(--border-accent, #fecaca);
+  border-radius: var(--radius-lg, 12px);
+  padding: 2.5rem;
+  box-shadow: 0 15px 35px -5px rgba(220, 38, 38, 0.08);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.auth-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-main, #0f172a);
+  margin-bottom: 0.35rem;
+}
+
+.auth-header p {
+  font-size: 0.92rem;
+  color: var(--text-muted, #64748b);
+}
+
 .signup-offer-tag {
   display: inline-flex;
   align-items: center;
@@ -26,9 +64,9 @@
   gap: 0.4rem;
   padding: 0.75rem 0.5rem;
   border: 1.5px solid #e2e8f0;
-  border-radius: var(--radius-md);
-  background: var(--bg-page);
-  color: var(--text-muted);
+  border-radius: var(--radius-md, 8px);
+  background: var(--bg-page, #ffffff);
+  color: var(--text-muted, #64748b);
   font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
@@ -36,21 +74,75 @@
 }
 
 .type-tab.active {
-  border-color: #dc2626;
+  border-color: var(--color-primary, #B91C1C);
   background-color: #fef2f2;
-  color: #dc2626;
+  color: var(--color-primary, #B91C1C);
 }
 
-.auth-select {
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-main, #0f172a);
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
-  padding: 0.8rem 1rem 0.8rem 2.8rem;
-  border-radius: var(--radius-md);
-  border: 1.5px solid #e2e8f0;
-  font-size: 0.95rem;
+}
+
+.input-with-icon .input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+}
+
+.input-with-icon input,
+.input-with-icon select,
+.input-with-icon select.auth-select {
+  width: 100%;
+  padding: 12px 14px 12px 44px !important;
+  border-radius: 8px;
+  border: 1.5px solid #cbd5e1;
+  font-size: 14px;
   font-family: inherit;
   outline: none;
-  background-color: var(--bg-page);
-  font-weight: 600;
+  background-color: #ffffff;
+  color: #0f172a;
+  line-height: 1.4;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-with-icon input::placeholder {
+  color: #94a3b8;
+}
+
+.input-with-icon input:focus,
+.input-with-icon select:focus,
+.input-with-icon select.auth-select:focus {
+  border-color: var(--color-primary, #B91C1C);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.12);
 }
 
 .signup-wallet-preview {
@@ -59,7 +151,7 @@
   gap: 0.75rem;
   background-color: #f0fdf4;
   border: 1px solid #bbf7d0;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md, 8px);
   padding: 0.85rem 1rem;
 }
 
@@ -73,6 +165,47 @@
   font-size: 0.8rem;
   color: #15803d;
   margin: 0;
+}
+
+.btn-auth-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #ffffff;
+  padding: 0.9rem;
+  border-radius: var(--radius-md, 8px);
+  font-size: 1rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-auth-submit:hover {
+  background: linear-gradient(135deg, #b91c1c, #991b1b);
+  transform: translateY(-1px);
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color, #e2e8f0);
+  font-size: 0.9rem;
+  color: var(--text-muted, #64748b);
+}
+
+.auth-switch-link {
+  color: var(--color-primary, #B91C1C);
+  font-weight: 700;
+}
+
+.auth-switch-link:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 500px) {

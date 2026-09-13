@@ -113,30 +113,40 @@
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
-.input-icon {
+.input-with-icon .input-icon {
   position: absolute;
-  left: 1rem;
-  color: #9ca3af;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
 }
 
 .input-with-icon input {
   width: 100%;
-  padding: 0.8rem 1rem 0.8rem 2.8rem;
-  border-radius: var(--radius-md);
-  border: 1.5px solid #e2e8f0;
-  font-size: 0.95rem;
+  padding: 12px 14px 12px 44px !important;
+  border-radius: var(--radius-md, 8px);
+  border: 1.5px solid #cbd5e1;
+  font-size: 14px;
   font-family: inherit;
   outline: none;
-  background-color: var(--bg-page);
+  background-color: #ffffff;
+  color: #0f172a;
+  line-height: 1.4;
+  box-sizing: border-box;
   transition: all 0.2s ease;
 }
 
 .input-with-icon input:focus {
-  border-color: var(--primary);
+  border-color: var(--color-primary, #B91C1C);
   background-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.12);
 }
 
 .btn-auth-submit {
