@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import bcrypt from 'bcryptjs';
 import prisma from '../shared/config/db.js';
 
@@ -102,20 +103,20 @@ async function main() {
     },
   });
 
-  // Delete legacy admin if exists to avoid unique phone collision
-  await prisma.user.deleteMany({ where: { email: 'admin@drivelearn.in' } });
+  const adminEmail = (process.env.ADMIN_EMAIL || 'admin@drivelearn.in').trim().toLowerCase();
+  const adminPassword = process.env.ADMIN_PASSWORD || 'Admin@DriveLearn2026';
 
   const adminUser = await prisma.user.upsert({
-    where: { email: 'talawarh316@gmail.com' },
+    where: { email: adminEmail },
     update: {
-      password: await hash('Vt@6360681710'),
+      password: await hash(adminPassword),
       role: 'ADMIN',
     },
     create: {
-      name: 'Super Admin (Talawar)',
-      email: 'talawarh316@gmail.com',
+      name: 'Super Admin',
+      email: adminEmail,
       phone: '+91 98000 00001',
-      password: await hash('Vt@6360681710'),
+      password: await hash(adminPassword),
       role: 'ADMIN',
       city: 'Pune',
       state: 'Maharashtra',
