@@ -3,6 +3,11 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import prisma from './shared/config/db.js';
 import schoolRoutes from './public/schoolRoutes.js';
+import authRoutes from './auth/authRoutes.js';
+import learnerRoutes from './learner/learnerRoutes.js';
+import instructorRoutes from './instructor/instructorRoutes.js';
+import ownerRoutes from './owner/ownerRoutes.js';
+import adminRoutes from './admin/adminRoutes.js';
 
 dotenv.config();
 
@@ -41,15 +46,16 @@ app.get('/api/db-health', async (req, res) => {
     }
 });
 
-import authRoutes from './auth/authRoutes.js';
-
-// 3. Mount Public School Routes
+// 3. Mount Domain Routes
 app.use('/api/schools', schoolRoutes);
-
-// 4. Mount Authentication & User Routes (Phase 2 Milestone)
 app.use('/api/auth', authRoutes);
+app.use('/api/learner', learnerRoutes);
+app.use('/api/instructor', instructorRoutes);
+app.use('/api/owner', ownerRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`🚀 DriveLearn India Server running on http://localhost:${PORT}`);
 });
+
 

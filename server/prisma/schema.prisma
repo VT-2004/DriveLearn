@@ -6,7 +6,10 @@ datasource db {
   provider = "postgresql"
 }
 
-// 1. User Roles Enum
+// -----------------------------------------------------------------------------
+// 1. Core Enumerations
+// -----------------------------------------------------------------------------
+
 enum Role {
   LEARNER
   OWNER
@@ -14,23 +17,82 @@ enum Role {
   ADMIN
 }
 
-// 2. User Model (Core Identity for all roles)
-model User {
-  id            String    @id @default(uuid())
-  name          String
-  email         String    @unique
-  phone         String    @unique
-  password      String    // Hashed with bcryptjs (never plaintext)
-  role          Role      @default(LEARNER)
-  city          String    @default("Pune")
-  state         String    @default("Maharashtra")
-  isActive      Boolean   @default(true)
-  wallet        Wallet?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+enum VehicleType {
+  TWO_WHEELER
+  FOUR_WHEELER
 }
 
-// 3. In-App Wallet Model (1-to-1 with User)
+enum FuelType {
+  PETROL
+  CNG
+  DIESEL
+  ELECTRIC
+}
+
+enum VehicleStatus {
+  ACTIVE
+  MAINTENANCE
+  RETIRED
+}
+
+enum CourseCategory {
+  TWO_WHEELER
+  FOUR_WHEELER
+  COMBO
+  SPECIALIZED
+}
+
+enum BookingStatus {
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  RESCHEDULED
+}
+
+enum PaymentStatus {
+  PAID
+  PENDING
+  REFUNDED
+}
+
+enum AlertSeverity {
+  ADVISORY
+  WARNING
+  CRITICAL
+}
+
+// -----------------------------------------------------------------------------
+// 2. User Model (Central Identity for All Roles)
+// -----------------------------------------------------------------------------
+
+model User {
+  id                  String              @id @default(uuid())
+  name                String
+  email               String              @unique
+  phone               String              @unique
+  password            String              // Hashed with bcryptjs (never plaintext)
+  role                Role                @default(LEARNER)
+  city                String              @default("Pune")
+  state               String              @default("Maharashtra")
+  emergencyContact    String?
+  avatarUrl           String?
+  isActive            Boolean             @default(true)
+  
+  // Relations
+  wallet              Wallet?
+  learnerProfile      LearnerProfile?
+  instructorProfile   InstructorProfile?
+  ownedSchools        School[]            @relation("SchoolOwner")
+  postedWeatherAlerts WeatherAlert[]      @relation("UserWeatherAlerts")
+  
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+}
+
+// -----------------------------------------------------------------------------
+// 3. In-App Wallet & Transaction Ledger
+// -----------------------------------------------------------------------------
+
 model Wallet {
   id            String              @id @default(uuid())
   userId        String              @unique
@@ -42,38 +104,298 @@ model Wallet {
   updatedAt     DateTime            @updatedAt
 }
 
-// 4. Wallet Transaction History (Immutable Ledger)
 model WalletTransaction {
   id            String    @id @default(uuid())
   walletId      String
   wallet        Wallet    @relation(fields: [walletId], references: [id], onDelete: Cascade)
-  amount        Float     // e.g. +15.0 for signup bonus, -15.0 for slot reservation
+  amount        Float     // e.g. +15.0 for bonus deposit, -15.0 for course reservation
   type          String    // "CREDIT" | "DEBIT"
   description   String    // e.g. "Introductory App Welcome Bonus"
+  referenceId   String?   // Optional booking or payment ID
   createdAt     DateTime  @default(now())
 }
 
-// 5. Driving School Model (Phase 1 Database Milestone)
+// -----------------------------------------------------------------------------
+// 4. Driving School Model (RTO-Approved Academy)
+// -----------------------------------------------------------------------------
+
 model School {
-  id                    String   @id @default(uuid())
+  id                    String              @id @default(uuid())
+  ownerId               String?
+  owner                 User?               @relation("SchoolOwner", fields: [ownerId], references: [id], onDelete: SetNull)
   name                  String
   tagline               String
-  rtoApprovalNo         String   @unique
-  establishedYear       Int      @default(2018)
+  rtoApprovalNo         String              @unique
+  establishedYear       Int                 @default(2018)
   phone                 String
   email                 String
   address               String
   city                  String
-  state                 String   @default("Maharashtra")
+  state                 String              @default("Maharashtra")
   pincode               String
-  rating                Float    @default(4.8)
-  reviewCount           Int      @default(0)
-  startingPrice         Int      @default(999)
-  verified              Boolean  @default(true)
-  femaleInstructor      Boolean  @default(false)
-  twoWheelerSpecialist  Boolean  @default(true)
+  rating                Float               @default(4.8)
+  reviewCount           Int                 @default(0)
+  startingPrice         Int                 @default(999)
+  verified              Boolean             @default(true)
+  femaleInstructor      Boolean             @default(false)
+  twoWheelerSpecialist  Boolean             @default(true)
   featuredImage         String
   facilities            String[]
-  createdAt             DateTime @default(now())
-  updatedAt             DateTime @updatedAt
+
+  // Relations
+  courses               Course[]
+  vehicles              Vehicle[]
+  instructors           InstructorProfile[]
+  learners              LearnerProfile[]
+  bookings              Booking[]
+  certificates          Certificate[]
+  fuelLedgers           FuelLedger[]
+  reviews               Review[]
+  weatherAlerts         WeatherAlert[]
+
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt
+}
+
+// -----------------------------------------------------------------------------
+// 5. Training Courses & Packages
+// -----------------------------------------------------------------------------
+
+model Course {
+  id                    String          @id @default(uuid())
+  schoolId              String
+  school                School          @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  title                 String
+  category              CourseCategory  @default(TWO_WHEELER)
+  duration              String          // e.g. "10 Days (45 mins/day)"
+  practicalHours        Int             @default(10)
+  price                 Int             // e.g. 999
+  originalPrice         Int             // e.g. 1800
+  isSubsidizedLaunch    Boolean         @default(false)
+  walletDiscount        Float           @default(15.0)
+  syllabus              String[]
+  batchTimings          String[]
+  pickupLandmark        String?
+  popular               Boolean         @default(false)
+  isActive              Boolean         @default(true)
+
+  // Relations
+  enrolledLearners      LearnerProfile[]
+  bookings              Booking[]
+
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+}
+
+// -----------------------------------------------------------------------------
+// 6. Vehicles & Dual-Control Compliance Dossier
+// -----------------------------------------------------------------------------
+
+model Vehicle {
+  id                    String              @id @default(uuid())
+  schoolId              String
+  school                School              @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  name                  String              // e.g. "Honda Activa 6G" or "Maruti Suzuki Swift"
+  model                 String              // e.g. "Swift VXi 2023"
+  type                  VehicleType         @default(TWO_WHEELER)
+  registrationNo        String              @unique // e.g. "MH-12-CD-8812"
+  fuelType              FuelType            @default(PETROL)
+  dualControlFitted     Boolean             @default(true)
+  chassisNo             String?
+  engineNo              String?
+  fitnessExpiry         DateTime?
+  insuranceExpiry       DateTime?
+  insurancePolicyNo     String?
+  rtoPassingDate        DateTime?
+  status                VehicleStatus       @default(ACTIVE)
+  odometerKm            Int                 @default(12500)
+
+  // Relations
+  instructors           InstructorProfile[]
+  learners              LearnerProfile[]
+  bookings              Booking[]
+  fuelLedgers           FuelLedger[]
+
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt
+}
+
+// -----------------------------------------------------------------------------
+// 7. Instructor Profile Model
+// -----------------------------------------------------------------------------
+
+model InstructorProfile {
+  id                    String              @id @default(uuid())
+  userId                String              @unique
+  user                  User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  schoolId              String
+  school                School              @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  assignedVehicleId     String?
+  assignedVehicle       Vehicle?            @relation(fields: [assignedVehicleId], references: [id], onDelete: SetNull)
+  licenseNo             String              // Motor Driving Instructor License (MDIR)
+  experienceYears       Int                 @default(5)
+  rating                Float               @default(4.9)
+  totalStudentsTrained  Int                 @default(150)
+  isFemaleSpecialist    Boolean             @default(false)
+  isRtoCertified        Boolean             @default(true)
+  shiftTimings          String              @default("06:30 AM - 06:00 PM")
+  status                String              @default("ACTIVE") // ACTIVE, ON_LEAVE, INACTIVE
+
+  // Relations
+  assignedLearners      LearnerProfile[]
+  bookings              Booking[]
+  reviews               Review[]
+
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt
+}
+
+// -----------------------------------------------------------------------------
+// 8. Learner Profile Model (Student Progress & Sarathi Dossier)
+// -----------------------------------------------------------------------------
+
+model LearnerProfile {
+  id                      String              @id @default(uuid())
+  userId                  String              @unique
+  user                    User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  schoolId                String?
+  school                  School?             @relation(fields: [schoolId], references: [id], onDelete: SetNull)
+  activeCourseId          String?
+  activeCourse            Course?             @relation(fields: [activeCourseId], references: [id], onDelete: SetNull)
+  assignedInstructorId    String?
+  assignedInstructor      InstructorProfile?  @relation(fields: [assignedInstructorId], references: [id], onDelete: SetNull)
+  assignedVehicleId       String?
+  assignedVehicle         Vehicle?            @relation(fields: [assignedVehicleId], references: [id], onDelete: SetNull)
+  
+  sarathiLearnerLicenseNo String?             // e.g. "MH-12/LL/2026/088192"
+  sarathiForm2Verified    Boolean             @default(false)
+  llExpiryDate            DateTime?
+  preferredLanguage       String              @default("Marathi")
+  currentStage            Int                 @default(0) // 0 to 5 matching ProgressStepper
+  attendancePercent       Float               @default(0.0)
+  lessonsCompleted        Int                 @default(0)
+  totalLessons            Int                 @default(10)
+
+  // Relations
+  bookings                Booking[]
+  certificates            Certificate[]
+  reviews                 Review[]
+
+  createdAt               DateTime            @default(now())
+  updatedAt               DateTime            @updatedAt
+}
+
+// -----------------------------------------------------------------------------
+// 9. Practical Lessons & Booking Schedule
+// -----------------------------------------------------------------------------
+
+model Booking {
+  id                    String              @id @default(uuid())
+  bookingRef            String              @unique // e.g. "BKG-503"
+  learnerId             String
+  learner               LearnerProfile      @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  schoolId              String
+  school                School              @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  instructorId          String
+  instructor            InstructorProfile   @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+  vehicleId             String?
+  vehicle               Vehicle?            @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
+  courseId              String?
+  course                Course?             @relation(fields: [courseId], references: [id], onDelete: SetNull)
+
+  date                  String              // "YYYY-MM-DD" e.g. "2026-08-25"
+  timeSlot              String              // "08:00 AM - 08:45 AM"
+  location              String              // e.g. "Warje RTO 8-Track Ground"
+  topic                 String              // e.g. "Simulated RTO 8-Track Exam Trial"
+  pickupLandmark        String?             // e.g. "Garware College Metro Gate 2 (Pillar 42)"
+  status                BookingStatus       @default(CONFIRMED)
+  paymentStatus         PaymentStatus       @default(PAID)
+  
+  // Live Cockpit Feedback
+  instructorNotes       String?
+  checklistDone         Json?               // e.g. { helmet: true, clutch: true, eightTrack: true }
+  studentRating         Int?                // 1-5 stars
+  studentReview         String?
+
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt
+}
+
+// -----------------------------------------------------------------------------
+// 10. CMVR Rule 27 Form 5 Passing Certificates
+// -----------------------------------------------------------------------------
+
+model Certificate {
+  id                    String          @id @default(uuid())
+  certificateNo         String          @unique // e.g. "MH-12-CMVR-2026-8819"
+  learnerId             String
+  learner               LearnerProfile  @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  schoolId              String
+  school                School          @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  ruleReference         String          @default("CMVR 1989 Rule 27 Form 5")
+  issueDate             DateTime        @default(now())
+  vehicleCategory       String          // e.g. "MCWG (Two-Wheeler with Gear)"
+  qrVerificationHash    String          @unique
+  status                String          @default("ISSUED") // ISSUED, REVOKED
+  createdAt             DateTime        @default(now())
+}
+
+// -----------------------------------------------------------------------------
+// 11. Monsoon Weather Alerts & Safety Broadcasts
+// -----------------------------------------------------------------------------
+
+model WeatherAlert {
+  id                    String          @id @default(uuid())
+  postedById            String
+  postedBy              User            @relation("UserWeatherAlerts", fields: [postedById], references: [id], onDelete: Cascade)
+  schoolId              String?
+  school                School?         @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  zone                  String          // e.g. "Pune MH-12 (Kothrud / Warje)"
+  headline              String          // e.g. "Heavy Waterlogging & Flash Rain on Karve Road"
+  message               String
+  severity              AlertSeverity   @default(WARNING)
+  rescheduleLinkEnabled Boolean         @default(true)
+  isActive              Boolean         @default(true)
+  expiresAt             DateTime?
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+}
+
+// -----------------------------------------------------------------------------
+// 12. Fuel & CNG Operational Ledger (School Owner Auditing)
+// -----------------------------------------------------------------------------
+
+model FuelLedger {
+  id                    String          @id @default(uuid())
+  schoolId              String
+  school                School          @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  vehicleId             String
+  vehicle               Vehicle         @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+  date                  DateTime        @default(now())
+  fuelType              FuelType        @default(PETROL)
+  quantityLiters        Float           // e.g. 14.5 liters or kg of CNG
+  amountPaid            Float           // e.g. 1520.0
+  odometerReading       Int             // e.g. 14850 km
+  receiptNo             String?
+  fuelStation           String          @default("HP Petrol Pump, Karve Road")
+  createdAt             DateTime        @default(now())
+}
+
+// -----------------------------------------------------------------------------
+// 13. Student Reviews & Ratings
+// -----------------------------------------------------------------------------
+
+model Review {
+  id                    String              @id @default(uuid())
+  learnerId             String
+  learner               LearnerProfile      @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  schoolId              String
+  school                School              @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  instructorId          String?
+  instructor            InstructorProfile?  @relation(fields: [instructorId], references: [id], onDelete: SetNull)
+  rating                Int                 @default(5)
+  courseName            String
+  comment               String
+  isVerified            Boolean             @default(true)
+  createdAt             DateTime            @default(now())
 }
